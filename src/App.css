@@ -2,16 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -28,11 +19,634 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.mapBox {
+  /* border: 10px, solid, black; */
+  /* padding: 1%; */
+}
+.mapContainer {
+  border: 10px, solid, black;
+  display: flex;
+  flex-wrap: wrap;
+  width: 25%
+}
+section {
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  border: 3px solid black;
+  background-color: brown;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  z-index: 1;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-family: "Oswald", sans-serif;
+  font-family: "Press Start 2P", cursive;
+  background-color: #8b0000;
+  max-width: 100%;
+  height: 100%;
+  margin: 2%;
+}
+
+/*GENERAL STYLES*/
+
+header h1 {
+  text-align: center;
+  margin: auto;
+}
+
+header {
+  border-bottom: 4px solid black;
+}
+
+h1 {
+  font-family: "Press Start 2P", cursive;
+  font-size: 4rem;
+  margin: 2% 5%;
+  background-image:url(assets/dirtblock-background.png);
+}
+
+
+/* BEGIN INTERFACE CSS */
+#menu{
+  z-index: 200;
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  margin: 5% 30%;
+  justify-content: center;
+  display: inline-block;
+}
+.splash{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 200;
+  text-align: center;
+}
+
+.splash div{
+  background-color: black;
+}
+
+.start{
+  margin: 20%;
+  padding: 1% 5%;
+  font-size: 24px;
+  background-color: black;
+  /* border: 1px solid white; */
+  color: white;
+  font-family: "Press Start 2P", cursive;
+}
+
+.start:hover {
+  background-color: black;
+  color: darkred;
+  border: 1px solid darkred;
+  transition-duration: .4s;
+}
+
+#charInput{
+  font-size: 2rem;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  background-color: black;
+  /* border: 1px solid white; */
+  margin: 20% 5% 0 5%;
+}
+
+@keyframes fadeIn{
+  to{
+    opacity: 1;
   }
 }
+
+@keyframes fadeOut{
+  to{
+    opacity: 0;
+  }
+}
+
+.fade-in{
+  opacity: 0;
+  animation: fadeIn 3s ease-in forwards; 
+}
+
+.quick-in{
+  opacity:0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+.fade-out{
+  opacity: 1;
+  animation: fadeOut 3s ease-in-out;
+}
+
+.hide{
+ visibility: hidden;
+ z-index: -100;
+}
+
+.reveal{
+  visibility: visible;
+}
+
+#nextButton{
+  background-color: black;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+}
+
+#nextButton:hover{
+  background-color: black;
+  color: darkred;
+}
+
+form, label, input{
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+}
+
+#music_container {
+  display: flex;
+}
+
+#mute_button {
+  width: 10%;
+  height: 5vh;
+  border: 0;
+  border-right: 6px solid black;
+  font-size: 2.2rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+#mute_button p {
+  border: 0;
+}
+
+#music_container img {
+  height: 5vh;
+  border: 0;
+  border-right: 6px solid black;
+}
+
+.slidecontainer {
+  width: 10%;
+  border: 0;
+  height: 5vh;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 0;
+  background-color: brown;
+  border-right: 6px solid black;
+  background-image: url(assets/sliderbackground.png); 
+  background-repeat: repeat-x;
+  background-position: center; 
+  background-size: contain;
+  outline: none; 
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 10px; 
+  height: 4vh; 
+  background: black;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 10px; 
+  height: 4vh; 
+  background: black;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#music_container button {
+  width: 90%;
+  height: 90%;
+}
+/* Begin cSheet Css */
+
+.pageContainer {
+  display: flex;
+  flex-flow: row no-wrap;
+  width: 100%;
+  max-height: 100vh;
+  /* margin: auto; */
+}
+
+.pageContainer div {
+  background-color: #695f4d;
+}
+
+#cSheet {
+  max-width: 50%;
+  border: 6px solid black;
+  margin: 1%;
+  display: flex;
+  flex-flow: column nowrap;
+  /* max-height: 75vh; */
+}
+
+/* Top Section of cSheet */
+
+.cSheetTop {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cSheetTop p {
+  margin: 2%;
+}
+
+.charArt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1%;
+  width: 38%;
+  border: 3px solid black;
+}
+
+.charArt img {
+  background-color: #695f4d;
+}
+
+#playerName {
+  background-color: #695f4d;
+}
+
+#map {
+  width: 50%;
+  margin: 1%;
+}
+
+.mapFloor1 {
+  /* padding: 6%; */
+  display: grid;
+  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+  grid-template-rows: 4vh 4vh 4vh 4vh 4vh 4vh 4vh 4vh 4vh 4vh;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: space-between; */
+}
+
+#map p {
+  border: none;
+}
+
+.charArt p {
+  max-width: 100%;
+  font-size: 1.3rem;
+  padding: 3%;
+  border: 1px solid black;
+}
+
+#playerName {
+  font-size: 1.5rem;
+}
+
+.charArt img {
+  width: 30%;
+  height: 30%;
+  margin: auto;
+}
+
+/* Middle Section of cSheet */
+
+.cSheetMid {
+  display: flex;
+  width: 100%;
+  flex-wrap: no-wrap;
+  justify-content: space-between;
+}
+
+.cSheetMid div {
+  width: 100%;
+  align-content: center;
+}
+
+.cSheetPlayerStats {
+  width: 40%;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.cSheetPlayerStats div {
+  display: flex;
+}
+
+.cSheetStatField p {
+  padding: 4%;
+  width: 50%;
+  margin: 1%;
+  font-size: 1.4rem;
+}
+
+.stat {
+  background-color: #695f4d;
+}
+
+.cSheetPlayerValues {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.cSheetPlayerValues div {
+  margin: 1%;
+}
+
+.cSheetHealth {
+  display: flex;
+  flex-flow: row no-wrap;
+  padding: 5%;
+  font-size: 1.5rem;
+}
+
+.cSheetHealth img {
+  width: 15%;
+  background-color: #695f4d;
+}
+
+.cSheetHealth p {
+  background-color: #695f4d;
+}
+
+.cSheetArmor {
+  display: flex;
+  flex-flow: row no-wrap;
+  padding: 5%;
+}
+
+.cSheetArmor img {
+  width: 15%;
+  background-color: #695f4d;
+}
+
+.cSheetArmor p {
+  background-color: #695f4d;
+}
+
+.cSheetWeapon {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 5%;
+  font-size: 1.5rem;
+}
+
+.cSheetWeapon img {
+  width: 15%;
+  background-color: #695f4d;
+}
+
+.cSheetWeapon p {
+  background-color: #695f4d;
+}
+
+/* Bottom section of CSheet */
+
+.cSheetBottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  max-height: 15vh
+}
+
+.cSheetInventory {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  padding: auto;
+  height:10vh;
+}
+.cSheetInventory{
+  max-width: 100%;
+  max-height: 15vh;
+}
+
+.cSheetInventory img{
+  background-color: #695f4d;
+  border:none;
+  width: 10%;
+}
+
+/* .items {
+  padding: 4%;
+  margin: 2%;
+} */
+
+/* #item1 {
+  width: 10%;
+}
+
+#item2 {
+  width: 8%;
+}
+
+#item3 {
+  width: 10%;
+}
+
+#item4 {
+  width: 10%;
+}
+
+#item5 {
+  width: 10%;
+}
+
+#item6 {
+  width: 10%;
+
+} */
+
+/* Right Side */
+#testBox {
+  animation: type 8s steps(60, start);
+}
+.rightSide {
+  width: 50%;
+  max-height: 100%;
+  border: none;
+  display: flex;
+  margin: 1% 1% 1% 0;
+  /* border: 6px solid black; */
+}
+
+.rightSide div {
+  background-color: #695f4d;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+}
+.right{
+  margin: auto;
+  height: 100%;
+}
+.right div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+.storyContainer {
+  width: 100%;
+}
+.roomContainer{
+  max-width: 100%;
+  margin: 1%;
+}
+
+.roomContainer div{
+  margin: 1%;
+
+}
+
+.storyContainer p {
+  animation-duration: type 15s steps(60, end);
+}
+
+.buttons {
+  max-width: 98%;
+  margin: 1%;
+  display: flex;
+}
+
+.buttons button {
+  padding: 2%;
+  margin: 1%;
+  justify-content: space-around;
+}
+
+#roomIdTester {
+  margin: 1%;
+}
+
+/* #roomOption1{
+
+}
+
+#roomOption2{
+
+}
+
+#roomOption3{
+  
+}
+
+#roomOption4{
+  
+}
+
+#roomOption5{
+  
+}
+
+#roomIdTester{
+  margin: 1%;
+} */
+
+#storyContainer{
+  width: 100%;
+}
+
+#storyContainer p {
+  width: 100%;
+  margin: 1%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+  padding: 10%;
+  background-color: black;
+  color: white;
+}
+
+#fightScreen{
+  width: 98%;
+  display: flex;
+  margin: 5% 1%;
+  flex-direction: column;
+  background-color: black;
+}
+
+#enemyImg {
+  width: 25%;
+  background-color: black;
+}
+
+#enemyImg img {
+  width: 50%;
+  background-color: black;
+}
+
+#enemyName {
+  background-color: black;
+  color: white;
+}
+
+#enemyStats {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+#enemyStats div {
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1%;
+}
+
+#enemyStats img {
+  width: 30%;
+  background-color: #695f4d;
+  margin: 2%;
+}
+
+#enemyHealth {
+  background-color: #695f4d;
+  margin: auto;
+}
+
+#enemyDefense {
+  background-color: #695f4d;
+  margin: auto;
+}
+
+#enemyAttack {
+  background-color: #695f4d;
+  margin: auto;
+}
+
+
