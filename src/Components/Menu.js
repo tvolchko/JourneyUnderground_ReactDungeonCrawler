@@ -1,13 +1,6 @@
 import React from "react";
 
-class Menu extends React.Component {
-    constructor() {
-        super();
-    }
-
-
-
-    render() {
+const Menu = () => {
         return (
             <div id="menu">
             <button id="save" onclick="saveGame()">Save your Game!</button>
@@ -16,4 +9,4 @@ class Menu extends React.Component {
         </div>
         )
     }
-}
+export default Menu

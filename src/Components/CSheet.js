@@ -2,24 +2,23 @@ import React from "react";
 import Map from "./Map";
 import CSheetMid from './CSheetMid'
 import CSheetBottom from './CSheetBottom'
+import '../App.css';
+
 let playerName = 'Bill'
-class CSheet extends React.Component {
-    constructor() {
-        super();
-    }
 
 
-    render() {
+const CSheet = () => { 
+
         return(
             <div class= "pageContainer">
                 <section id='cSheet'>
                     <div class = "cSheetTop">
-                        <section id='map'>
+                        {/* <section id='map'> */}
                             <Map/>
-                        </section>
+                        {/* </section> */}
                         <div class="charArt">
-                            <img src = "assets/Player1.png"/>
-                            <p id={playerName}></p>
+                            <img src = {require("../assets/Player1.png")}/>
+                            <p id={'playerName'}>{playerName}</p>
                         </div>
                     </div>
                     <div>
@@ -32,5 +31,5 @@ class CSheet extends React.Component {
             </div>
         )
     }
-}
+
 export default CSheet
