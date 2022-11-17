@@ -1,39 +1,26 @@
 import React from "react";
 import Controls from './Controls'
+import { connect } from "react-redux";
+import FightScreen from "./FightScreen";
 
-const RightSide = () => {
-        return(
+
+const RightSide = ({enemy}) => {
+    
+        return (
             <div className="roomContainer">
-                            {/* <div id="fightScreen">
-
-                                <div>
-                                    <img id="enemyImg" src= '' className="enemyImg">
-                                    <p id="enemyName"></p>
-                                </div>
-
-                                <div id = 'enemyStats'>
-                                    <div>
-                                        <img id= "enemyHealthImg" src = "">
-                                        <p id="enemyHealth"></p>
-                                    </div>
-                                    <div>
-                                        <img id="enemyDefenseImg" src= "">
-                                        <p id="enemyDefense"></p>
-                                    </div>
-                                    <div>
-                                    <img id="enemyAttackImg" src= "">
-                                    <p id= "enemyAttack"></p>
-                                    </div>
-                                </div>
+                            <div>
+                                <FightScreen/>
                             </div> 
-
-                            This needs to function for the fight screen
-
-                            */}
                             <div>
                                 <Controls/>
                             </div>
                         </div>
         )
     }
-export default RightSide
+    const mapState = (state) => {
+        return {
+            enemy: state.enemy,
+        }
+    }
+    
+    export default connect(mapState)(RightSide)

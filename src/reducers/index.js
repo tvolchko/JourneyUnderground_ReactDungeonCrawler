@@ -1,5 +1,6 @@
 import { FETCH_FAIL, FETCH_START, FETCH_SUCCESS, FORM_ERROR, LOG_OUT } from "../actions";
 import { itemArr } from "../Libraries/Items";
+import enemyArr from "../Libraries/Enemies";
 
 export const initialState = {
     player: {

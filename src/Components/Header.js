@@ -4,7 +4,7 @@ const Header = () => {
         return (
             <>
             <div id="music_container">
-            <audio id="background_music" src="assets/Тиффани-TheBeginning-.mp3" loop autoplay></audio> 
+            {/* <audio id="background_music" src="assets/Тиффани-TheBeginning-.mp3" loop autoplay></audio>  */}
             <div id= 'mute_button' onclick="mute()">
                 <p id='mute_option'>mute</p>
             </div>

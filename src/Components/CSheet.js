@@ -13,11 +13,11 @@ const CSheet = () => {
             <div class= "pageContainer">
                 <section id='cSheet'>
                     <div class = "cSheetTop">
-                        <section id='map'>
+                        {/* <section id='map'> */}
                             <Map/>
-                        </section>
+                        {/* </section> */}
                         <div class="charArt">
-                            <img src = "assets/Player1.png"/>
+                            <img src = {require("../assets/Player1.png")}/>
                             <p id={'playerName'}>{playerName}</p>
                         </div>
                     </div>

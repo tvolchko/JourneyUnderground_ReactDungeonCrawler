@@ -25,19 +25,19 @@ const CSheetMid = ({player}) => {
                     <div class="cSheetPlayerValues">
 
                         <div class="cSheetHealth"> 
-                            <img src = "assets/heart pixel art.png"/> 
+                            <img src = {require("../assets/heart pixel art.png")}/> 
                             <p>Health:</p>
                             <p id={'cSheetHealth'}>{`${player.hpCurrent}/${player.hpTotal}`}</p>
                         </div>
                         <div class= "cSheetArmor"> 
-                            <img src= "assets/Shield1.png"/> 
+                            <img src= {require("../assets/Shield1.png")}/> 
                             <p>Armor:</p>
 
                             <p id={'cSheetArmor'}>{player.armor + player.tempArmor}</p>
 
                         </div>
                         <div class="cSheetWeapon">
-                            <img src= "assets/sword_small (1).png"/>
+                            <img src= {require("../assets/sword_small (1).png")}/>
                             <p>Weapon:</p>
 
                             <p id={'cSheetWeapon'}>{player.dmg}</p>

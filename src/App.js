@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import Header from './Components/Header';
 import './App.css';
 import CSheet from './Components/CSheet';

@@ -23,7 +23,7 @@ const slime = new Enemy({
     hp: 14,
     dmg: 2,
     armor: 12,
-    enemyImg: 'assets/purple_blob.png'
+    enemyImg: require('../assets/purple_blob.png')
   })
   
   const goblin = new Enemy({
@@ -35,7 +35,7 @@ const slime = new Enemy({
     hp: 8,
     dmg: 4,
     armor: 14,
-    enemyImg: 'assets/goblin.png'
+    enemyImg: require('../assets/goblin.png')
   })
   const enemyArr = [slime, goblin]
 
