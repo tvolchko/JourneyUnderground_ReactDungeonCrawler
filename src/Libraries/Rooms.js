@@ -18,73 +18,73 @@ class Room {
     this.floor = roomAtt.floor
   }
   
-  optionOne () {
-    if (this.roomNorth != null) {
-      document.getElementById(roomArr[player.room].mapId).style.border = null
-      player.room = this.roomNorth
-      roomText()
-    }
-    this.explored = true
-    if (roomArr[player.room].enemyPresent != null) {
-      combatStart()
-    }
-  }
+  // optionOne () {
+  //   if (this.roomNorth != null) {
+  //     document.getElementById(roomArr[player.room].mapId).style.border = null
+  //     player.room = this.roomNorth
+  //     roomText()
+  //   }
+  //   this.explored = true
+  //   if (roomArr[player.room].enemyPresent != null) {
+  //     combatStart()
+  //   }
+  // }
 
-  optionTwo () {
-    if (this.roomSouth != null) {
-      document.getElementById(roomArr[player.room].mapId).style.border = null
-      player.room = this.roomSouth
-      roomText()
-    }
-    this.explored = true
-    if (roomArr[player.room].enemyPresent != null) {
-      combatStart()
-    }
-  }
+  // optionTwo () {
+  //   if (this.roomSouth != null) {
+  //     document.getElementById(roomArr[player.room].mapId).style.border = null
+  //     player.room = this.roomSouth
+  //     roomText()
+  //   }
+  //   this.explored = true
+  //   if (roomArr[player.room].enemyPresent != null) {
+  //     combatStart()
+  //   }
+  // }
 
-  optionThree () {
-    if (this.roomEast != null) {
-      document.getElementById(roomArr[player.room].mapId).style.border = null
-      player.room = this.roomEast
-      roomText()
-    }
-    this.explored = true
-    if (roomArr[player.room].enemyPresent != null) {
-      combatStart()
-    }
-  }
+  // optionThree () {
+  //   if (this.roomEast != null) {
+  //     document.getElementById(roomArr[player.room].mapId).style.border = null
+  //     player.room = this.roomEast
+  //     roomText()
+  //   }
+  //   this.explored = true
+  //   if (roomArr[player.room].enemyPresent != null) {
+  //     combatStart()
+  //   }
+  // }
 
-  optionFour () {
-    if (this.roomWest != null) {
-      document.getElementById(roomArr[player.room].mapId).style.border = null
-      player.room = this.roomWest
-      roomText()
-    }
-    this.explored = true
-    if (roomArr[player.room].enemyPresent != null) {
-      combatStart()
-    }
-  }
+  // optionFour () {
+  //   if (this.roomWest != null) {
+  //     document.getElementById(roomArr[player.room].mapId).style.border = null
+  //     player.room = this.roomWest
+  //     roomText()
+  //   }
+  //   this.explored = true
+  //   if (roomArr[player.room].enemyPresent != null) {
+  //     combatStart()
+  //   }
+  // }
 
-  roomInteract () {
-    if (this.treasurePresent != null) {
-      itemArr[this.treasurePresent].loot()
-      this.treasurePresent = null
-      roomText()
-    } else if (this.nextFloor != null) {
-      player.room = this.nextFloor
-      nextFloor()
-      roomText()
-      this.explored = true
+  // roomInteract () {
+  //   if (this.treasurePresent != null) {
+  //     itemArr[this.treasurePresent].loot()
+  //     this.treasurePresent = null
+  //     roomText()
+  //   } else if (this.nextFloor != null) {
+  //     player.room = this.nextFloor
+  //     nextFloor()
+  //     roomText()
+  //     this.explored = true
 
-    } else if (this.previousFloor != null) {
-      player.room = this.previousFloor
-      nextFloor()
-      roomText()
-      this.explored = true
+  //   } else if (this.previousFloor != null) {
+  //     player.room = this.previousFloor
+  //     nextFloor()
+  //     roomText()
+  //     this.explored = true
 
-    }
-  }
+  //   }
+  // }
 }
 const startingRoom = new Room({
     roomId: 0,
@@ -596,6 +596,11 @@ const startingRoom = new Room({
     mapId: 'rm9',
     floor: 3
   })
-  roomArr = [startingRoom, room1, room2, room3, room4, room5, room6, room7, room8, room9, room10, room11, room12, room13, room14, room15, room16, room17, room18, room19, room20, room21, room22, room23, room24, room25, room26, room27, room28, room29, room30, room31, room32, room33, room34, room35, room36, room37, room38, room39, room40, room41, room42, room43, room44]
+  export const roomArr = [startingRoom, room1, room2, room3, room4, room5, room6, room7, room8, room9, room10, room11, room12, room13, room14, room15, room16, room17, room18, room19, room20, room21, room22, room23, room24, room25, room26, room27, room28, room29, room30, room31, room32, room33, room34, room35, room36, room37, room38, room39, room40, room41, room42, room43, room44]
 
-  export default roomArr
+  const floorOne = [startingRoom, room1, room2, room3, room4, room5, room6, room7, room8, room9]
+  const floorTwo = [room10, room11, room12, room13, room14, room15, room16, room17, room18, room19, room20, room21, room22, room23, room24]
+  const floorThree = [room25, room26, room27, room28, room29, room30, room31, room32, room33, room34, room35, room36, room37, room38, room39, room40, room41, room42, room43, room44]
+  export const floors = [floorOne, floorTwo, floorThree]
+
+

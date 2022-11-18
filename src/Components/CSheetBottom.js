@@ -13,7 +13,7 @@ const CsheetBottom = ({player}) => {
                             {!player.inventory ? null : player.inventory.map((item, i) => {
                                 console.log(player.inventory[i])
                                 return (
-                                    <img onClick={player.inventory[i].useItem({i})} id = {`item${i+1}`} src={player.inventory[i].imgSrc}/>
+                                    <img onClick={player.inventory[i].useItem({i})} key={i} id = {`item${i+1}`} src={player.inventory[i].imgSrc}/>
                                 )
                             })}
                                 {/* <img onClick='player.inventory[0].useItem(0)' id = "item1" src=''/>

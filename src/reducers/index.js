@@ -1,6 +1,7 @@
-import { FETCH_FAIL, FETCH_START, FETCH_SUCCESS, FORM_ERROR, LOG_OUT } from "../actions";
+import {EXPLORE_ROOM} from '../actions/index'
 import { itemArr } from "../Libraries/Items";
 import enemyArr from "../Libraries/Enemies";
+import { floors } from "../Libraries/Rooms";
 
 export const initialState = {
     player: {
@@ -17,17 +18,25 @@ export const initialState = {
         inventory: [itemArr[0], itemArr[1]]
     },
     enemy: null,
+    currentRoom: null,
+    currentFloor: floors[0]
     
 }
 
 const reducer = (state= initialState, action)=>{
     switch (action.type) {
-        case FETCH_SUCCESS: {
+
+        case 'test': {
             return {
                 ...state,
                 loggedIn: true,
                 fetching: false,
                 error: '',
+            }
+        }
+        case EXPLORE_ROOM : {
+            return {
+                ...state
             }
         }
 
