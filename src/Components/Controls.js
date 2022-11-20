@@ -1,28 +1,31 @@
 import React from "react";
 import { connect } from "react-redux";
 import { exploreRoom } from "../actions";
+import ControlButton from "./ControlButtons";
 
 
-const Controls = ({dispatch}) => {
+const Controls = ({dispatch, rooms, currentRoom, currentFloor}) => {
 
-    const testButton = () => {
-        dispatch(exploreRoom(12))
+    const testButton = (x) => {
+        dispatch(exploreRoom(x))
     }
+    console.log(currentRoom)
         return(
             <div class="buttons">
-                            <button onClick={testButton()}>Room Button</button>
-                            <button id= 'roomOption5' onClick= {null}></button>
-                            <button id= 'roomOption1' onClick= {testButton}></button>
-                            <button id= 'roomOption3' onClick= {testButton}></button>
-                            <button id= 'roomOption4' onClick= {testButton}></button> 
-                            <button id= 'roomOption2' onClick= {testButton}></button>                    
-
-                            <div id="roomIdTester"></div>
-                            <div id="playerLog"></div>   
-                            <div id="combatLog"></div>
-                            
-                        </div>    
+                <ControlButton direction='roomNorth'/>                
+                <ControlButton direction='roomWest'/>
+                <ControlButton direction='roomSouth'/>  
+                <ControlButton direction='roomEast'/>  
+            </div>    
         )
     }
-    export default connect()(Controls)
+    const mapState = (state) => {
+        return {
+            rooms: state.rooms,
+            currentRoom: state.currentRoom,
+            currentFloor: state.currentFloor
+        }
+    }
+
+    export default connect(mapState)(Controls)
 

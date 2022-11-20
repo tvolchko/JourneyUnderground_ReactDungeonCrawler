@@ -20,9 +20,9 @@ export const initialState = {
         inventory: [itemArr[0], itemArr[1]]
     },
     enemy: null,
-    currentRoom: 0,
+    currentRoom: roomArr[0],
     currentFloor: 0,
-    exploredRooms: [[3, 5], []],
+    exploredRooms: [[67], [], []],
     lootedRooms: [],
     rooms: roomArr
     
@@ -32,10 +32,12 @@ const reducer = (state= initialState, action)=>{
     switch (action.type) {
 
         case EXPLORE_ROOM : {
+            const exploredCopy = state.exploredRooms.slice()
+            exploredCopy[state.currentFloor].push(action.payload[1])
             return {
                 ...state,
-                currentRoom: state.currentFloor[action.payload],
-                exploredRooms: [...state.exploredRooms, action.payload]
+                currentRoom: state.rooms[action.payload[0]],
+                exploredRooms: exploredCopy
             }
         }
 

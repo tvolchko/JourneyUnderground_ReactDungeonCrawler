@@ -8,8 +8,8 @@ export const EXPLORE_ROOM = 'EXPLORE_ROOM'
 
 
 
-export const exploreRoom = (rmId) => {
-    return ({ type: EXPLORE_ROOM, payload: rmId})
+export const exploreRoom = (rmId, mapId) => {
+    return ({ type: EXPLORE_ROOM, payload: [rmId, mapId]})
     
 }
 

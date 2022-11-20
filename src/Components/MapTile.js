@@ -6,20 +6,20 @@ import { connect } from "react-redux";
 const MapTile = ({idx, currentFloor, exploredRooms, currentRoom}) => {
 
     
-    if(idx === currentRoom){
+    if(idx === currentRoom.mapId){
         return (
-            <div className="mapBox" id={idx} style={{border: '1px solid white', width: '9%', background: 'black'}}>'</div>
+            <div className="mapBox" id={idx} style={{border: '1px solid white', width: '10%', background: 'black'}}>'</div>
         )
     }
     
     if(exploredRooms[currentFloor].includes(idx)){
         return (
-            <div className="mapBox" id={idx} style={{border: '1px solid black', width: '9%', background: 'black'}}>'</div>
+            <div className="mapBox" id={idx} style={{border: '1px solid black', width: '10%', background: 'black'}}>'</div>
         )
     }
 
     return (
-        <div className="mapBox" id={idx} style={{border: '1px solid black', width: '9%'}}>'</div>
+        <div className="mapBox" id={idx} style={{border: '1px solid black', width: '10%'}}>'</div>
     )
 }
 
