@@ -2,6 +2,8 @@ import {EXPLORE_ROOM} from '../actions/index'
 import { itemArr } from "../Libraries/Items";
 import enemyArr from "../Libraries/Enemies";
 import { floors } from "../Libraries/Rooms";
+import { roomArr } from '../Libraries/Rooms';
+
 
 export const initialState = {
     player: {
@@ -18,25 +20,22 @@ export const initialState = {
         inventory: [itemArr[0], itemArr[1]]
     },
     enemy: null,
-    currentRoom: null,
-    currentFloor: floors[0]
+    currentRoom: 0,
+    currentFloor: 0,
+    exploredRooms: [[3, 5], []],
+    lootedRooms: [],
+    rooms: roomArr
     
 }
 
 const reducer = (state= initialState, action)=>{
     switch (action.type) {
 
-        case 'test': {
-            return {
-                ...state,
-                loggedIn: true,
-                fetching: false,
-                error: '',
-            }
-        }
         case EXPLORE_ROOM : {
             return {
-                ...state
+                ...state,
+                currentRoom: state.currentFloor[action.payload],
+                exploredRooms: [...state.exploredRooms, action.payload]
             }
         }
 

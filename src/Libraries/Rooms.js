@@ -94,7 +94,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm68',
+    mapId: 67,
     nextFloor: null,
     floor: 1
   })
@@ -107,7 +107,7 @@ const startingRoom = new Room({
     roomSouth: 0,
     treasurePresent: 0,
     enemyPresent: 0,
-    mapId: 'rm58',
+    mapId: 57,
     nextFloor: null,
     floor: 1
   })
@@ -119,7 +119,7 @@ const startingRoom = new Room({
     roomSouth: 1,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm48',
+    mapId: 47,
     nextFloor: null,
     floor: 1
   })
@@ -131,7 +131,7 @@ const startingRoom = new Room({
     roomSouth: 2,
     treasurePresent: 0,
     enemyPresent: null,
-    mapId: 'rm38',
+    mapId: 37,
     nextFloor: 10,
     floor: 1
   })
@@ -143,7 +143,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: 1,
-    mapId: 'rm37',
+    mapId: 36,
     nextFloor: null,
     floor: 1
   })
@@ -155,7 +155,7 @@ const startingRoom = new Room({
     roomSouth: 6,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm36',
+    mapId: 35,
     nextFloor: null,
     floor: 1
   })
@@ -167,7 +167,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm46',
+    mapId: 45,
     nextFloor: null,
     floor: 1
   })
@@ -179,7 +179,7 @@ const startingRoom = new Room({
     roomSouth: 8,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm45',
+    mapId: 44,
     nextFloor: null,
     floor: 1
   })
@@ -191,7 +191,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm55',
+    mapId: 54,
     nextFloor: null,
     floor: 1
   })
@@ -203,7 +203,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm54',
+    mapId: 53,
     nextFloor: 10,
     floor: 1
   })
@@ -215,7 +215,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm65',
+    mapId: 64,
     previousFloor: 9,
     floor: 2
   })
@@ -227,7 +227,7 @@ const startingRoom = new Room({
     roomSouth: 10,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm55',
+    mapId: 54,
     nextFloor: 25,
     floor: 2
   })
@@ -239,7 +239,7 @@ const startingRoom = new Room({
     roomSouth: 11,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm45',
+    mapId: 44,
     floor: 2
   })
   const room13 = new Room({
@@ -250,7 +250,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm46',
+    mapId: 45,
     floor: 2
   })
   const room14 = new Room({
@@ -261,7 +261,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm47',
+    mapId: 46,
     floor: 2
   })
   const room15 = new Room({
@@ -272,7 +272,7 @@ const startingRoom = new Room({
     roomSouth: 18,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm48',
+    mapId: 47,
     floor: 2
   })
   const room16 = new Room({
@@ -283,7 +283,7 @@ const startingRoom = new Room({
     roomSouth: 15,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm38',
+    mapId: 37,
     floor: 2
   })
   const room17 = new Room({
@@ -294,7 +294,7 @@ const startingRoom = new Room({
     roomSouth: 16,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm28',
+    mapId: 27,
     nextFloor: 25,
     floor: 2
   })
@@ -306,7 +306,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm58',
+    mapId: 57,
     floor: 2
   })
   const room19 = new Room({
@@ -317,7 +317,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm44',
+    mapId: 43,
     floor: 2
   })
   const room20 = new Room({
@@ -328,7 +328,7 @@ const startingRoom = new Room({
     roomSouth: 19,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm34',
+    mapId: 33,
     floor: 2
   })
   const room21 = new Room({
@@ -339,7 +339,7 @@ const startingRoom = new Room({
     roomSouth: 20,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm24',
+    mapId: 23,
     floor: 2
   })
   const room22 = new Room({
@@ -350,7 +350,7 @@ const startingRoom = new Room({
     roomSouth: 21,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm14',
+    mapId: 13,
     floor: 2
   })
   const room23 = new Room({
@@ -361,7 +361,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm23',
+    mapId: 22,
     floor: 2
   })
   const room24 = new Room({
@@ -372,7 +372,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm25',
+    mapId: 24,
     floor: 2
   })
   const room25 = new Room({
@@ -383,7 +383,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm65',
+    mapId: 64,
     previousFloor: 17,
     floor: 3
   })
@@ -395,7 +395,7 @@ const startingRoom = new Room({
     roomSouth: 25,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm55',
+    mapId: 54,
     floor: 3
   })
   const room27 = new Room({
@@ -406,7 +406,7 @@ const startingRoom = new Room({
     roomSouth: 26,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm45',
+    mapId: 44,
     floor: 3
   })
   const room28 = new Room({
@@ -417,7 +417,7 @@ const startingRoom = new Room({
     roomSouth: 27,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm35',
+    mapId: 34,
     floor: 3
   })
   const room29 = new Room({
@@ -428,7 +428,7 @@ const startingRoom = new Room({
     roomSouth: 28,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm25',
+    mapId: 24,
     floor: 3
   })
   const room30 = new Room({
@@ -439,7 +439,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm54',
+    mapId: 53,
     floor: 3
   })
   const room31 = new Room({
@@ -450,7 +450,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm53',
+    mapId: 52,
     floor: 3
   })
   const room32 = new Room({
@@ -461,7 +461,7 @@ const startingRoom = new Room({
     roomSouth: 31,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm43',
+    mapId: 42,
     floor: 3
   })
   const room33 = new Room({
@@ -472,7 +472,7 @@ const startingRoom = new Room({
     roomSouth: 32,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm33',
+    mapId: 32,
     floor: 3
   })
   const room34 = new Room({
@@ -483,7 +483,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm34',
+    mapId: 33,
     floor: 3
   })
   const room35 = new Room({
@@ -494,7 +494,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm56',
+    mapId: 55,
     floor: 3
   })
   const room36 = new Room({
@@ -505,7 +505,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm57',
+    mapId: 56,
     floor: 3
   })
   const room37 = new Room({
@@ -516,7 +516,7 @@ const startingRoom = new Room({
     roomSouth: 36,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm47',
+    mapId: 46,
     floor: 3
   })
   const room38 = new Room({
@@ -527,7 +527,7 @@ const startingRoom = new Room({
     roomSouth: 37,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm37',
+    mapId: 36,
     floor: 3
   })
   const room39 = new Room({
@@ -538,7 +538,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm36',
+    mapId: 35,
     floor: 3
   })
   const room40 = new Room({
@@ -549,7 +549,7 @@ const startingRoom = new Room({
     roomSouth: 38,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm27',
+    mapId: 26,
     floor: 3
   })
   const room41 = new Room({
@@ -560,7 +560,7 @@ const startingRoom = new Room({
     roomSouth: 40,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm17',
+    mapId: 16,
     floor: 3
   })
   const room42 = new Room({
@@ -571,7 +571,7 @@ const startingRoom = new Room({
     roomSouth: 41,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm7',
+    mapId: 6,
     floor: 3
   })
   const room43 = new Room({
@@ -582,7 +582,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm8',
+    mapId: 7,
     floor: 3
   })
   const room44 = new Room({
@@ -593,7 +593,7 @@ const startingRoom = new Room({
     roomSouth: null,
     treasurePresent: 1,
     enemyPresent: null,
-    mapId: 'rm9',
+    mapId: 8,
     floor: 3
   })
   export const roomArr = [startingRoom, room1, room2, room3, room4, room5, room6, room7, room8, room9, room10, room11, room12, room13, room14, room15, room16, room17, room18, room19, room20, room21, room22, room23, room24, room25, room26, room27, room28, room29, room30, room31, room32, room33, room34, room35, room36, room37, room38, room39, room40, room41, room42, room43, room44]
