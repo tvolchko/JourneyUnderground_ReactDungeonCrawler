@@ -19,7 +19,7 @@ export const initialState = {
         room: 0,
         
     },
-    inventory: [itemArr[1]],
+    inventory: [],
     enemy: null,
     currentRoom: roomArr[0],
     currentFloor: 0,
