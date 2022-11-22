@@ -3,17 +3,17 @@ import { connect } from "react-redux";
 import potion from '../assets/Potion.png'
 import key from '../assets/Key.png'
 
-const CsheetBottom = ({player}) => {
-    console.log(player.inventory[0])
+const CsheetBottom = ({inventory}) => {
+    console.log(inventory[0])
         return(
             <>
             <div class="cSheetBottom">
                     <h3>Inventory</h3>
                         <div className="cSheetInventory">
-                            {!player.inventory ? null : player.inventory.map((item, i) => {
-                                console.log(player.inventory[i])
+                            {!inventory ? null : inventory.map((item, i) => {
+                                console.log(inventory[i])
                                 return (
-                                    <img onClick={player.inventory[i].useItem({i})} key={i} id = {`item${i+1}`} src={player.inventory[i].imgSrc}/>
+                                    <img  key={i} id = {`item${i+1}`} src={inventory[i].imgSrc}/>
                                 )
                             })}
                                 {/* <img onClick='player.inventory[0].useItem(0)' id = "item1" src=''/>
@@ -29,7 +29,7 @@ const CsheetBottom = ({player}) => {
     }
 const mapState = (state) => {
     return {
-        player: state.player
+        inventory: state.inventory
     }
 }
 export default connect(mapState)(CsheetBottom)

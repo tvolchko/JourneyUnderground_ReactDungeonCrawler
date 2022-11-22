@@ -17,7 +17,7 @@ const Controls = ({dispatch, rooms, currentRoom, currentFloor}) => {
                 <ControlButton direction='roomSouth'/>  
                 <ControlButton direction='roomEast'/>
                 <ControlButton direction='nextFloor'/> 
-                <ControlButton direction='loot'/> 
+                <ControlButton direction='treasurePresent'/> 
                 <div>{currentRoom.roomId}</div>
             </div>    
         )

@@ -13,9 +13,7 @@ const CSheet = () => {
             <div class= "pageContainer">
                 <section id='cSheet'>
                     <div class = "cSheetTop">
-                        {/* <section id='map'> */}
                             <Map/>
-                        {/* </section> */}
                         <div class="charArt">
                             <img src = {require("../assets/Player1.png")}/>
                             <p id={'playerName'}>{playerName}</p>

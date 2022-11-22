@@ -1,27 +1,27 @@
 import React from "react";
 import { connect } from "react-redux";
 import { exploreRoom } from "../actions";
+import { lootRoom } from "../actions";
 
 
 const ControlButton = ({dispatch, currentRoom, direction}) => {
     let heading
     const roomTravel = () => {
         dispatch(exploreRoom(heading, currentRoom.mapId))
-        console.log(heading)
     }
-    const climbFloor = () => {
-
+    const lootRoomButton = () => {
+        dispatch(lootRoom(currentRoom.treasurePresent))
+    }
+    if(currentRoom.treasurePresent >= 0 && direction === 'treasurePresent'){
+        return (
+            <button id= {direction} onClick= {lootRoomButton}>Loot the room!</button>
+        )
     }
     if(currentRoom[direction]  || currentRoom[direction] === 0){
         heading = currentRoom[direction]
         return (
             <button id= {direction} onClick= {roomTravel}>{direction}</button>
         )
-    } else if(direction === 'stairs' && currentRoom.nextFloor){
-
-    return (
-        <button id= {direction} onClick= {roomTravel}>Climb the stairs</button>
-    )
     }else {
         return null
         
