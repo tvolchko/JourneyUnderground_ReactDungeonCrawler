@@ -15,7 +15,10 @@ const Controls = ({dispatch, rooms, currentRoom, currentFloor}) => {
                 <ControlButton direction='roomNorth'/>                
                 <ControlButton direction='roomWest'/>
                 <ControlButton direction='roomSouth'/>  
-                <ControlButton direction='roomEast'/>  
+                <ControlButton direction='roomEast'/>
+                <ControlButton direction='nextFloor'/> 
+                <ControlButton direction='loot'/> 
+                <div>{currentRoom.roomId}</div>
             </div>    
         )
     }

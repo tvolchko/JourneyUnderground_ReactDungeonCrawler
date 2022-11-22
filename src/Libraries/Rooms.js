@@ -17,74 +17,7 @@ class Room {
     this.previousFloor = roomAtt.previousFloor
     this.floor = roomAtt.floor
   }
-  
-  // optionOne () {
-  //   if (this.roomNorth != null) {
-  //     document.getElementById(roomArr[player.room].mapId).style.border = null
-  //     player.room = this.roomNorth
-  //     roomText()
-  //   }
-  //   this.explored = true
-  //   if (roomArr[player.room].enemyPresent != null) {
-  //     combatStart()
-  //   }
-  // }
 
-  // optionTwo () {
-  //   if (this.roomSouth != null) {
-  //     document.getElementById(roomArr[player.room].mapId).style.border = null
-  //     player.room = this.roomSouth
-  //     roomText()
-  //   }
-  //   this.explored = true
-  //   if (roomArr[player.room].enemyPresent != null) {
-  //     combatStart()
-  //   }
-  // }
-
-  // optionThree () {
-  //   if (this.roomEast != null) {
-  //     document.getElementById(roomArr[player.room].mapId).style.border = null
-  //     player.room = this.roomEast
-  //     roomText()
-  //   }
-  //   this.explored = true
-  //   if (roomArr[player.room].enemyPresent != null) {
-  //     combatStart()
-  //   }
-  // }
-
-  // optionFour () {
-  //   if (this.roomWest != null) {
-  //     document.getElementById(roomArr[player.room].mapId).style.border = null
-  //     player.room = this.roomWest
-  //     roomText()
-  //   }
-  //   this.explored = true
-  //   if (roomArr[player.room].enemyPresent != null) {
-  //     combatStart()
-  //   }
-  // }
-
-  // roomInteract () {
-  //   if (this.treasurePresent != null) {
-  //     itemArr[this.treasurePresent].loot()
-  //     this.treasurePresent = null
-  //     roomText()
-  //   } else if (this.nextFloor != null) {
-  //     player.room = this.nextFloor
-  //     nextFloor()
-  //     roomText()
-  //     this.explored = true
-
-  //   } else if (this.previousFloor != null) {
-  //     player.room = this.previousFloor
-  //     nextFloor()
-  //     roomText()
-  //     this.explored = true
-
-  //   }
-  // }
 }
 const startingRoom = new Room({
     roomId: 0,

@@ -1,4 +1,4 @@
-import {EXPLORE_ROOM} from '../actions/index'
+import {EXPLORE_ROOM, CLIMB_FLOOR} from '../actions/index'
 import { itemArr } from "../Libraries/Items";
 import enemyArr from "../Libraries/Enemies";
 import { floors } from "../Libraries/Rooms";
@@ -22,7 +22,7 @@ export const initialState = {
     enemy: null,
     currentRoom: roomArr[0],
     currentFloor: 0,
-    exploredRooms: [[67], [], []],
+    exploredRooms: [[67], [64], [64]],
     lootedRooms: [],
     rooms: roomArr
     
@@ -33,11 +33,20 @@ const reducer = (state= initialState, action)=>{
 
         case EXPLORE_ROOM : {
             const exploredCopy = state.exploredRooms.slice()
-            exploredCopy[state.currentFloor].push(action.payload[1])
+            exploredCopy[state.currentRoom.floor - 1].push(action.payload[1])
             return {
                 ...state,
                 currentRoom: state.rooms[action.payload[0]],
                 exploredRooms: exploredCopy
+            }
+        }
+
+        case CLIMB_FLOOR : {
+            const newRoom = state.currentRoom.nextFloor
+            return {
+                ...state,
+                currentRoom: state.rooms[newRoom],
+                currentFloor: state.currentFloor + 1
             }
         }
 

@@ -5,21 +5,31 @@ import { exploreRoom } from "../actions";
 
 const ControlButton = ({dispatch, currentRoom, direction}) => {
     let heading
-    if(currentRoom[direction]){
-        heading = currentRoom[direction]
-    } else {
-        return null
-            // <button id= {direction} >Nothing this way</button>
-        
-    }
-    const testButton = () => {
+    const roomTravel = () => {
         dispatch(exploreRoom(heading, currentRoom.mapId))
         console.log(heading)
     }
+    const climbFloor = () => {
+
+    }
+    if(currentRoom[direction]  || currentRoom[direction] === 0){
+        heading = currentRoom[direction]
+        return (
+            <button id= {direction} onClick= {roomTravel}>{direction}</button>
+        )
+    } else if(direction === 'stairs' && currentRoom.nextFloor){
 
     return (
-        <button id= {direction} onClick= {testButton}>{direction}</button>
+        <button id= {direction} onClick= {roomTravel}>Climb the stairs</button>
     )
+    }else {
+        return null
+        
+    }
+    
+
+    
+    
 }
 const mapState = (state) => {
     return {
