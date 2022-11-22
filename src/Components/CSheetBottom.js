@@ -4,7 +4,6 @@ import potion from '../assets/Potion.png'
 import key from '../assets/Key.png'
 
 const CsheetBottom = ({inventory}) => {
-    console.log(inventory[0])
         return(
             <>
             <div class="cSheetBottom">

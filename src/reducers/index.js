@@ -1,4 +1,4 @@
-import {EXPLORE_ROOM, LOOT_ROOM} from '../actions/index'
+import {EXPLORE_ROOM, LOOT_ROOM, BEGIN_COMBAT} from '../actions/index'
 import { itemArr } from "../Libraries/Items";
 import enemyArr from "../Libraries/Enemies";
 import { floors } from "../Libraries/Rooms";
@@ -20,7 +20,7 @@ export const initialState = {
         
     },
     inventory: [],
-    enemy: null,
+    enemy: 0,
     currentRoom: roomArr[0],
     currentFloor: 0,
     exploredRooms: [[67], [64], [64]],
@@ -52,6 +52,14 @@ const reducer = (state= initialState, action)=>{
             }
         }
 
+        case BEGIN_COMBAT : {
+            const newEnemy = enemyArr.slice(action.payload, action.payload + 1)
+            console.log(newEnemy)
+            return {
+                ...state,
+                enemy: newEnemy[0]
+            }
+        }
         default: {
             return state
         }

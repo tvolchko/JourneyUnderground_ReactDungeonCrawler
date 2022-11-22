@@ -19,10 +19,10 @@
   color: #61dafb;
 }
 
-.mapBox {
+/* .mapBox {
   /* border: 10px, solid, black; */
   /* padding: 1%; */
-}
+/* } */
 .mapContainer {
   border: 10px, solid, black;
   display: flex;
@@ -626,12 +626,13 @@ form, label, input{
   flex-direction: row;
   justify-content: space-between;
   margin: 1%;
+  width: 33%;
 }
 
 #enemyStats img {
-  width: 30%;
+  width: 50%;
   background-color: #695f4d;
-  margin: 2%;
+  /* margin: 2%; */
 }
 
 #enemyHealth {
