@@ -10,11 +10,11 @@ let playerName = 'Bill'
 const CSheet = () => { 
 
         return(
-            <div class= "pageContainer">
+            <div className= "pageContainer">
                 <section id='cSheet'>
-                    <div class = "cSheetTop">
+                    <div className = "cSheetTop">
                         <Map/> {/*  Contains the 10x10 grid of dynamic tiles for the minimap */}
-                        <div class="charArt">
+                        <div className="charArt">
                             <img src = {require("../assets/Player1.png")}/>
                             <p id={'playerName'}>{playerName}</p>
                         </div>

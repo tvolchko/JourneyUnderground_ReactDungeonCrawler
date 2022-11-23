@@ -5,27 +5,27 @@ import { connect } from "react-redux";
 const CSheetMid = ({player}) => { // Renders player stats
 
         return(
-            <div class="cSheetMid">
-                    <div class="cSheetPlayerStats">
-                        <div><p class ="stat">Strength:</p><p id="cSheetStatField1" class = "stat">{player.strength}</p></div>
-                        <div><p class ="stat">Dexterity:</p><p id="cSheetStatField2" class = "stat">{player.dexterity}</p></div>
-                        <div><p class ="stat">Constitution:</p><p id="cSheetStatField3" class = "stat">{player.constitution}</p></div>
+            <div className="cSheetMid">
+                    <div className="cSheetPlayerStats">
+                        <div><p className ="stat">Strength:</p><p id="cSheetStatField1" className = "stat">{player.strength}</p></div>
+                        <div><p className ="stat">Dexterity:</p><p id="cSheetStatField2" className = "stat">{player.dexterity}</p></div>
+                        <div><p className ="stat">Constitution:</p><p id="cSheetStatField3" className = "stat">{player.constitution}</p></div>
                     </div>
-                    <div class="cSheetPlayerValues">
+                    <div className="cSheetPlayerValues">
 
-                        <div class="cSheetHealth"> 
+                        <div className="cSheetHealth"> 
                             <img src = {require("../assets/heart pixel art.png")}/> 
                             <p>Health:</p>
                             <p id={'cSheetHealth'}>{`${player.hpCurrent}/${player.hpTotal}`}</p>
                         </div>
-                        <div class= "cSheetArmor"> 
+                        <div className= "cSheetArmor"> 
                             <img src= {require("../assets/Shield1.png")}/> 
                             <p>Armor:</p>
 
                             <p id={'cSheetArmor'}>{player.armor + player.tempArmor}</p>
 
                         </div>
-                        <div class="cSheetWeapon">
+                        <div className="cSheetWeapon">
                             <img src= {require("../assets/sword_small (1).png")}/>
                             <p>Weapon:</p>
 

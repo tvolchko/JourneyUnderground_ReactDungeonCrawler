@@ -18,10 +18,10 @@ function App() {
       <header className="App-header">
         <Header/>
       </header>
-      <body>
+ 
       <CSheet/>
       <RightSide/>
-      </body>
+
     </div>
     </Provider>
   );

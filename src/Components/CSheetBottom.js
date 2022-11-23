@@ -5,8 +5,8 @@ import key from '../assets/Key.png'
 
 const CsheetBottom = ({inventory}) => {
         return(
-            <>
-            <div class="cSheetBottom">
+        
+            <div className="cSheetBottom">
                     <h3>Inventory</h3>
                         <div className="cSheetInventory">
                             {!inventory ? null : inventory.map((item, i) => {
@@ -18,7 +18,7 @@ const CsheetBottom = ({inventory}) => {
                                 {/* Maps state inventory array objects to div and renders their img key*/}
                         </div>
                         </div>
-                        </>
+                        
         )
     }
 const mapState = (state) => {
