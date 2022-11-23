@@ -25,7 +25,8 @@ export const initialState = {
     currentFloor: 0,
     exploredRooms: [[67], [64], [64]],
     lootedRooms: [],
-    rooms: roomArr
+    rooms: roomArr,
+    ReadOutText: []
     
 }
 
@@ -75,7 +76,7 @@ const reducer = (state= initialState, action)=>{
             }
         }
 
-        case END_COMBAT : {
+        case END_COMBAT : { //No payload, updates current room state and its entry in the state.rooms array to clear enemyPresent
             const defeatedRoom = JSON.parse(JSON.stringify(state.currentRoom))
             const copyRoomArr = state.rooms.slice()
             defeatedRoom.enemyPresent = null
