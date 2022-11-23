@@ -5,21 +5,16 @@ import { connect } from "react-redux";
 
 
 
-let rooms = []
-for(let i = 1; i<101; i++){
-    rooms.push(`rm${i}`)
-}
-const clickTest = () => {
 
-}
 
 const Map = ({currentRoom}) => {
+    let rooms = Array(100).fill(0) //Initializes an array size 100 to be mapped 
         return (
             <div className="mapContainer">
             
-                {rooms.map((room, idx) => {
+                {rooms.map((room, idx) => { // Renders 100 maptiles and passes idx which is used as the mapId key of currentRoom or adjecent rooms
                     return(
-                        <MapTile key={idx} idx={idx} explored={true}/>
+                        <MapTile key={idx} idx={idx}/>
                     )
                 })}
             </div>

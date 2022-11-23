@@ -9,7 +9,7 @@ const FightScreen = ({dispatch, currentRoom, enemy}) => {
     if(currentRoom.enemyPresent === null){ // prevents render if no enemies in current room
         return null
     }
-    if(currentRoom.enemyPresent >= 0){
+    if(currentRoom.enemyPresent >= 0){ //Moves appropriate enemy to the enemy state to be used to render its stats here
         dispatch(beginCombat(currentRoom.enemyPresent))
     }
     return (

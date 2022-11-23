@@ -1,19 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-// player: {
-//     name: 'Bill the Barbarian',
-//     strength: 5,
-//     dexterity: 4,
-//     constitution: 3,
-//     hpCurrent: 10,
-//     hpTotal: 10,
-//     armor: 15,
-//     tempArmor: 0,
-//     dmg: 4,
-//     room: 0,
-//     inventory: []
-// },
-const CSheetMid = ({player}) => {
+
+
+const CSheetMid = ({player}) => { // Renders player stats
 
         return(
             <div class="cSheetMid">

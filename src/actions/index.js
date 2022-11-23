@@ -1,4 +1,4 @@
-export const EXPLORE_ROOM = 'EXPLORE_ROOM'
+export const EXPLORE_ROOM = 'EXPLORE_ROOM' // These just prevent accidental mispellings
 export const CLIMB_FLOOR = 'CLIMB_FLOOR'
 export const LOOT_ROOM = 'LOOT_ROOM'
 export const BEGIN_COMBAT = 'BEGIN_COMBAT'

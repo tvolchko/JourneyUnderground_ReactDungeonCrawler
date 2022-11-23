@@ -20,18 +20,16 @@ class Room {
 
 }
 const startingRoom = new Room({
-    roomId: 0,
-    roomNorth: 1,
-    roomWest: null,
+    roomId: 0, // Largely not used, mostly for own reference. Represents room's index in roomArr
+    roomNorth: 1, //the id and index of room adjacent in the direction of the key
+    roomWest: null, //Null if no room adjacent
     roomEast: null,
     roomSouth: null,
-    treasurePresent: 1,
-    enemyPresent: null,
-    mapId: 67,
-    nextFloor: null,
-    floor: 1
+    treasurePresent: null, //itemArr index of lootable item in the room, null if no loot
+    enemyPresent: null, //enemyArr index of present enemy, null if no enemy present
+    mapId: 67, //Represents the index of the map tile where this room is to be located
+    floor: 1 //Represents the dungeon floor this room is on. Would have been easier to start at 0, but here we are
   })
-  startingRoom.explored = true
   const room1 = new Room({
     roomId: 1,
     roomNorth: 2,
@@ -41,7 +39,6 @@ const startingRoom = new Room({
     treasurePresent: 0,
     enemyPresent: 0,
     mapId: 57,
-    nextFloor: null,
     floor: 1
   })
   const room2 = new Room({
@@ -53,7 +50,6 @@ const startingRoom = new Room({
     treasurePresent: 1,
     enemyPresent: null,
     mapId: 47,
-    nextFloor: null,
     floor: 1
   })
   const room3 = new Room({
@@ -65,7 +61,7 @@ const startingRoom = new Room({
     treasurePresent: 0,
     enemyPresent: null,
     mapId: 37,
-    nextFloor: 10,
+    nextFloor: 10, //Represents the index of the room that connects this room to the next floor
     floor: 1
   })
   const room4 = new Room({
@@ -77,7 +73,6 @@ const startingRoom = new Room({
     treasurePresent: 1,
     enemyPresent: 1,
     mapId: 36,
-    nextFloor: null,
     floor: 1
   })
   const room5 = new Room({
@@ -89,7 +84,6 @@ const startingRoom = new Room({
     treasurePresent: 1,
     enemyPresent: null,
     mapId: 35,
-    nextFloor: null,
     floor: 1
   })
   const room6 = new Room({
@@ -101,7 +95,6 @@ const startingRoom = new Room({
     treasurePresent: 1,
     enemyPresent: null,
     mapId: 45,
-    nextFloor: null,
     floor: 1
   })
   const room7 = new Room({
@@ -113,7 +106,6 @@ const startingRoom = new Room({
     treasurePresent: 1,
     enemyPresent: null,
     mapId: 44,
-    nextFloor: null,
     floor: 1
   })
   const room8 = new Room({
@@ -125,7 +117,6 @@ const startingRoom = new Room({
     treasurePresent: 1,
     enemyPresent: null,
     mapId: 54,
-    nextFloor: null,
     floor: 1
   })
   const room9 = new Room({
@@ -529,11 +520,14 @@ const startingRoom = new Room({
     mapId: 8,
     floor: 3
   })
-  export const roomArr = [startingRoom, room1, room2, room3, room4, room5, room6, room7, room8, room9, room10, room11, room12, room13, room14, room15, room16, room17, room18, room19, room20, room21, room22, room23, room24, room25, room26, room27, room28, room29, room30, room31, room32, room33, room34, room35, room36, room37, room38, room39, room40, room41, room42, room43, room44]
+  export const roomArr = [startingRoom, room1, room2, room3, room4, room5, room6, room7, room8, room9, room10, room11, room12, room13, room14, room15, room16, room17, room18, room19, room20, room21, room22, room23, room24, room25, room26, room27, room28, room29, room30, room31, room32, room33, room34, room35, room36, room37, room38, room39, room40, room41, room42, room43, room44] //Collection of all rooms, their index here will be used to identify them in most circumstances
 
-  const floorOne = [startingRoom, room1, room2, room3, room4, room5, room6, room7, room8, room9]
-  const floorTwo = [room10, room11, room12, room13, room14, room15, room16, room17, room18, room19, room20, room21, room22, room23, room24]
-  const floorThree = [room25, room26, room27, room28, room29, room30, room31, room32, room33, room34, room35, room36, room37, room38, room39, room40, room41, room42, room43, room44]
-  export const floors = [floorOne, floorTwo, floorThree]
+
+
+  // I thought I might want to be able to access all rooms on a given floor from one array, but haven't found a good reason to use them
+  // const floorOne = [startingRoom, room1, room2, room3, room4, room5, room6, room7, room8, room9]
+  // const floorTwo = [room10, room11, room12, room13, room14, room15, room16, room17, room18, room19, room20, room21, room22, room23, room24]
+  // const floorThree = [room25, room26, room27, room28, room29, room30, room31, room32, room33, room34, room35, room36, room37, room38, room39, room40, room41, room42, room43, room44]
+  // export const floors = [floorOne, floorTwo, floorThree]
 
 

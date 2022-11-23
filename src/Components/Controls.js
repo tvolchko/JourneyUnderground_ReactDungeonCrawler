@@ -6,12 +6,8 @@ import ControlButton from "./ControlButtons";
 
 const Controls = ({dispatch, rooms, currentRoom, currentFloor}) => {
 
-    const testButton = (x) => {
-        dispatch(exploreRoom(x))
-    }
-    console.log(currentRoom)
         return(
-            <div class="buttons">
+            <div class="buttons"> {/* These buttons render dynamically based on properties of currentRoom*/}
                 <ControlButton direction='roomNorth'/>                
                 <ControlButton direction='roomWest'/>
                 <ControlButton direction='roomSouth'/>  

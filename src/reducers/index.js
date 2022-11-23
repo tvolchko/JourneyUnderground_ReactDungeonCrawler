@@ -32,9 +32,15 @@ export const initialState = {
 const reducer = (state= initialState, action)=>{
     switch (action.type) {
 
-        case EXPLORE_ROOM : {
-            const exploredCopy = state.exploredRooms.slice()
-            exploredCopy[state.currentRoom.floor - 1].push(action.payload[1])
+        case EXPLORE_ROOM : { //Used to move between rooms. Expects payload: [rmId, mapId]. rmId will be the destination to change current room, mapId is from the room being left as to be added to explored rooms array
+            if(state.exploredRooms[state.currentRoom.floor - 1].includes(action.payload[1])){ // Prevents bloat if rooms are returned to
+                return {
+                    ...state,
+                    currentRoom: state.rooms[action.payload[0]],
+                }
+            }
+            const exploredCopy = state.exploredRooms.slice() //Deep copy to sidestep mutation rules
+            exploredCopy[state.currentRoom.floor - 1].push(action.payload[1]) //Pushes newly explored mapId to explored array
             return {
                 ...state,
                 currentRoom: state.rooms[action.payload[0]],
@@ -42,19 +48,18 @@ const reducer = (state= initialState, action)=>{
             }
         }
 
-        case LOOT_ROOM : {
-            const newItem = itemArr.slice(action.payload, action.payload + 1)
-            const newInv = state.inventory.slice()
-            newInv.push(newItem[0])
+        case LOOT_ROOM : { //Expects payload: [itemId]
+            const newItem = itemArr.slice(action.payload, action.payload + 1) //Grabs copy of item at itemId
+            const newInv = state.inventory.slice() //Mutation avoidance
+            newInv.push(newItem[0]) 
             return {
                 ...state,
                 inventory: newInv
             }
         }
 
-        case BEGIN_COMBAT : {
-            const newEnemy = enemyArr.slice(action.payload, action.payload + 1)
-            console.log(newEnemy)
+        case BEGIN_COMBAT : { //Expects payload: [enemyId]. Enemy being added to state will cause the fightScreen to render automatically
+            const newEnemy = enemyArr.slice(action.payload, action.payload + 1) //Grabs copy of enemy at enemyId
             return {
                 ...state,
                 enemy: newEnemy[0]

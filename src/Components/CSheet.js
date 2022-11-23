@@ -13,17 +13,17 @@ const CSheet = () => {
             <div class= "pageContainer">
                 <section id='cSheet'>
                     <div class = "cSheetTop">
-                            <Map/>
+                        <Map/> {/*  Contains the 10x10 grid of dynamic tiles for the minimap */}
                         <div class="charArt">
                             <img src = {require("../assets/Player1.png")}/>
                             <p id={'playerName'}>{playerName}</p>
                         </div>
                     </div>
                     <div>
-                        <CSheetMid/>
+                        <CSheetMid/> {/*  Dispays current player stats, health etc */}
                     </div>
                     <div>
-                        <CSheetBottom/>
+                        <CSheetBottom/> {/*  Player Inventory */}
                     </div>
                 </section>
             </div>
