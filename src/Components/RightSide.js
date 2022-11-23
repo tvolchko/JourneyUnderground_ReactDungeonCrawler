@@ -9,7 +9,7 @@ const RightSide = ({enemy}) => {
         return (
             <div className="roomContainer">
                             <div>
-                                <FightScreen/> {/* fightScreen renders conditionally if there is an enemy in current room*/ }
+                                <FightScreen/> {/* FightScreen renders conditionally if there is an enemy in current room*/ }
                             </div> 
                             <div>
                                 <Controls/> {/* Dyanamically renders options for player based on choices available in current room*/ }

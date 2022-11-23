@@ -1,17 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
 import { beginCombat } from "../actions";
-
+import FightControls from "./FightControls";
+import { useEffect } from "react";
 
 
 const FightScreen = ({dispatch, currentRoom, enemy}) => {
 
+    
+    useEffect(() => {
+        if(currentRoom.enemyPresent >= 0){ //Moves appropriate enemy to the enemy state to be used to render its stats here
+            dispatch(beginCombat(currentRoom.enemyPresent))
+        }
+    }, [currentRoom])
+
     if(currentRoom.enemyPresent === null){ // prevents render if no enemies in current room
         return null
     }
-    if(currentRoom.enemyPresent >= 0){ //Moves appropriate enemy to the enemy state to be used to render its stats here
-        dispatch(beginCombat(currentRoom.enemyPresent))
-    }
+    
     return (
         <div id="fightScreen">
 
@@ -33,6 +39,9 @@ const FightScreen = ({dispatch, currentRoom, enemy}) => {
                                     <img id="enemyAttackImg" src= {require('../assets/sword_small (1).png')}/>
                                     <p id= "enemyAttack">{enemy.dmg}</p>
                                     </div>
+                                </div>
+                                <div id="fightControls">
+                                    <FightControls/>
                                 </div>
                             </div> 
     )

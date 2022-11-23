@@ -1,4 +1,4 @@
-import {EXPLORE_ROOM, LOOT_ROOM, BEGIN_COMBAT} from '../actions/index'
+import {EXPLORE_ROOM, LOOT_ROOM, BEGIN_COMBAT, COMBAT_ACTION, END_COMBAT} from '../actions/index'
 import { itemArr } from "../Libraries/Items";
 import enemyArr from "../Libraries/Enemies";
 import { floors } from "../Libraries/Rooms";
@@ -65,6 +65,30 @@ const reducer = (state= initialState, action)=>{
                 enemy: newEnemy[0]
             }
         }
+
+        case COMBAT_ACTION : { //Expects payload: [enemy, player]. Recieves updated combatant objects after combat action occurs, and updates state
+
+            return {
+                ...state,
+                player: action.payload[1],
+                enemy: action.payload[0]
+            }
+        }
+
+        case END_COMBAT : {
+            const defeatedRoom = JSON.parse(JSON.stringify(state.currentRoom))
+            const copyRoomArr = state.rooms.slice()
+            defeatedRoom.enemyPresent = null
+            copyRoomArr[state.currentRoom.roomId] = defeatedRoom
+            return {
+                ...state,
+                rooms: copyRoomArr,
+                currentRoom: defeatedRoom,
+                enemy: null
+            }
+        }
+
+
         default: {
             return state
         }

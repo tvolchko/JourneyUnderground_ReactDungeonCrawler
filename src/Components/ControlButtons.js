@@ -24,7 +24,7 @@ const ControlButton = ({dispatch, currentRoom, direction}) => {//These move the 
             <button id= {direction} onClick= {roomTravel}>{direction}</button>
         )
     }else {
-        return null
+        return null //renders nothing if no option exists for this direction
         
     }
     
