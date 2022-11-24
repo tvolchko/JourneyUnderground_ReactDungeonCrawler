@@ -27,21 +27,24 @@ const ControlButton = ({dispatch, currentRoom, direction}) => {//These move the 
         dispatch(exploreRoom(currentRoom[direction], currentRoom.mapId)) //Needs destination to update current room, and current mapId to update explored rooms array
     }
       useEffect(() => {
+        
+        document.addEventListener('keydown', handleKeyDown);
+
         function handleKeyDown(e) {
             
             if(e.key === button && currentRoom[direction] != null){
-                console.log(direction, currentRoom[direction], 'this')
+                console.log(direction, currentRoom[direction])
                         roomTravel()
                     }
         }
     
-        document.addEventListener('keydown', handleKeyDown);
+        
     
         // Don't forget to clean up
         return function cleanup() {
           document.removeEventListener('keydown', handleKeyDown);
         }
-      }, []);
+      }, [currentRoom]);
 
     
     const lootRoomButton = () => {
