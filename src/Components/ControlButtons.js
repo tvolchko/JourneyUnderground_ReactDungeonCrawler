@@ -5,45 +5,31 @@ import { lootRoom } from "../actions";
 import { useEffect } from "react";
 
 
-const ControlButton = ({dispatch, currentRoom, direction}) => {//These move the player about the map. Expects a direction prop : roomNorth, roomWest, roomSouth, roomEast, nextFloor, or treasurePresent. These will be keys of current room object
+const ControlButton = ({dispatch, currentRoom, direction}) => {//These move the player about the map. Expects a direction prop : roomNorth, roomWest, roomSouth, roomEast, nextFloor, or treasurePresent. A copy of this component will be rendered for each prop present on currentRoom
 
-    let button
-    switch(direction){
-        case 'roomNorth' : button = 'w'; break;
-        case 'roomSouth' : button = 's'; break;
-        case 'roomWest' : button = 'a'; break;
-        case 'roomEast' : button = 'd'; break;
-        case 'nextFloor' : button = 'Enter'; break;
-        default : button = null;
-    }
-    
-    // const keyPressActive = null
-    // const handleKeyPress = (event) => {
-    //     if(event.key === button){
-    //         roomTravel()
-    //     }
-    //   }
+
     const roomTravel = () => {//Uses direction prop to access current room key of same name, providing destination
         dispatch(exploreRoom(currentRoom[direction], currentRoom.mapId)) //Needs destination to update current room, and current mapId to update explored rooms array
     }
-      useEffect(() => {
+      useEffect(() => {//This function adds WASD keyboard control to movement
+        let button
+        switch(direction){ //Sorts the direction to the appropriate hotkey
+            case 'roomNorth' : button = 'w'; break;
+            case 'roomSouth' : button = 's'; break;
+            case 'roomWest' : button = 'a'; break;
+            case 'roomEast' : button = 'd'; break;
+            case 'nextFloor' : button = 'Enter'; break;
+            default : button = null;
+        }
+        
+        const handleKeyDown = (e) => { if(e.key === button && currentRoom[direction] != null) roomTravel(); } //Compares event key to sorted button and executes roomTravel
         
         document.addEventListener('keydown', handleKeyDown);
 
-        function handleKeyDown(e) {
-            
-            if(e.key === button && currentRoom[direction] != null){
-                console.log(direction, currentRoom[direction])
-                        roomTravel()
-                    }
+        return function cleanup() { //Cleans event listener after each render
+            document.removeEventListener('keydown', handleKeyDown);
         }
-    
         
-    
-        // Don't forget to clean up
-        return function cleanup() {
-          document.removeEventListener('keydown', handleKeyDown);
-        }
       }, [currentRoom]);
 
     
@@ -58,10 +44,10 @@ const ControlButton = ({dispatch, currentRoom, direction}) => {//These move the 
     }
     if(currentRoom[direction] != null){ //Room keys of roomNorth or roomSouth etc will be the Id of the adjacent room, or null if no room adjacent
         return (
-            <button id= {direction}  onClick= {roomTravel}>{direction} {button} {currentRoom[direction]}</button>
+            <button id= {direction}  onClick= {roomTravel}>{direction}</button>
         )
     }else {
-        return null //renders nothing if no option exists for this direction
+        return null //Renders nothing if no option exists for this direction
         
     }
     
