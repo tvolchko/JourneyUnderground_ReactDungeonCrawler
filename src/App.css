@@ -1,3 +1,8 @@
+
+@import "react-alice-carousel/lib/alice-carousel.css";
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+@import 'react-responsive-carousel/lib/styles/carousel.min.css';
 .App {
   text-align: center;
 }
@@ -228,7 +233,7 @@ form, label, input{
   outline: none; 
 }
 
-.slider::-webkit-slider-thumb {
+/* .slider::-webkit-slider-thumb {
   -webkit-appearance: none; 
   appearance: none;
   width: 10px; 
@@ -246,7 +251,7 @@ form, label, input{
   background: black;
   padding: 5px;
   cursor: pointer;
-}
+} */
 
 #music_container button {
   width: 90%;

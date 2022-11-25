@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { exploreRoom } from "../actions";
 import { lootRoom } from "../actions";
 import { useEffect } from "react";
+import useHotKeyFunc from "../Utils/hotKeyFunc";
 
 
 const ControlButton = ({dispatch, currentRoom, direction}) => {//These move the player about the map. Expects a direction prop : roomNorth, roomWest, roomSouth, roomEast, nextFloor, or treasurePresent. A copy of this component will be rendered for each prop present on currentRoom
@@ -11,26 +12,8 @@ const ControlButton = ({dispatch, currentRoom, direction}) => {//These move the 
     const roomTravel = () => {//Uses direction prop to access current room key of same name, providing destination
         dispatch(exploreRoom(currentRoom[direction], currentRoom.mapId)) //Needs destination to update current room, and current mapId to update explored rooms array
     }
-      useEffect(() => {//This function adds WASD keyboard control to movement
-        let button
-        switch(direction){ //Sorts the direction to the appropriate hotkey
-            case 'roomNorth' : button = 'w'; break;
-            case 'roomSouth' : button = 's'; break;
-            case 'roomWest' : button = 'a'; break;
-            case 'roomEast' : button = 'd'; break;
-            case 'nextFloor' : button = 'Enter'; break;
-            default : button = null;
-        }
-        
-        const handleKeyDown = (e) => { if(e.key === button && currentRoom[direction] != null) roomTravel(); } //Compares event key to sorted button and executes roomTravel
-        
-        document.addEventListener('keydown', handleKeyDown);
 
-        return function cleanup() { //Cleans event listener after each render
-            document.removeEventListener('keydown', handleKeyDown);
-        }
-        
-      }, [currentRoom]);
+    useHotKeyFunc(direction, currentRoom, roomTravel) //Custom hook to add WASD control to movement
 
     
     const lootRoomButton = () => {

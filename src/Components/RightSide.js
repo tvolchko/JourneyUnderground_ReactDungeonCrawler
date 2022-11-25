@@ -2,6 +2,7 @@ import React from "react";
 import Controls from './Controls'
 import { connect } from "react-redux";
 import FightScreen from "./FightScreen";
+import PcCreation from "./CharacterCreation/PcCreation";
 
 
 const RightSide = ({enemy}) => {
@@ -13,6 +14,7 @@ const RightSide = ({enemy}) => {
                             </div> 
                             <div>
                                 <Controls/> {/* Dyanamically renders options for player based on choices available in current room*/ }
+                                <PcCreation/>
                             </div>
                         </div>
         )
