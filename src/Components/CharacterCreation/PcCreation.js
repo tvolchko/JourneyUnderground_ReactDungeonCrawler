@@ -1,39 +1,45 @@
 import React from "react";
-import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { useState } from "react";
 
-const initialState = {
-    portrait: 0,
-    stats: null,
 
-}
 const PcCreation = () => {
+    const initialState = {
+        portrait: 0,
+        stats: {
+            strength: 1,
+            dexterity: 1,
+            intelligence: 1,
+        },
+    }
     const Carousel = require('react-responsive-carousel').Carousel;
     const [character, setCharacter] = useState(initialState)
-    // const handleDragStart = (e) => e.preventDefault();
-
-    // const items = [
-    //     <img src={require('../../assets/Ranger.png')} onDragStart={handleDragStart} role="presentation" />,
-    //     <img src={require('../../assets/Ranger.png')}  onDragStart={handleDragStart} role="presentation" />,
-    //     <img src={require('../../assets/Ranger.png')}  onDragStart={handleDragStart} role="presentation" />,
-    // ];
     const handleChange = (idx) => {
-        setCharacter({
-                    ...character, 
-                    portrait: idx
-                    })
+        setCharacter({...character, portrait: idx})
+    }
+    const statButtonHandler = (e) => {
+        const stat = e.currentTarget.id.slice(0, -2) 
+        const direction = e.currentTarget.id.slice(-2)
+        if(character.stats[stat] === 1 && direction === 'Dn') {
+            return null
+        } else {
+            setCharacter({
+                ...character,
+                stats: {...character.stats, [stat]: direction === 'Up' ? character.stats[stat] + 1 : character.stats[stat] - 1}
+            })
+        }
+        
     }
 
     return (
-        <>    {/* Probably its own component */}
+        <div >    {/* Probably its own component */}
                 {/* Some kind of portrait selction */}
                 {/* Stat selection? */}
                 {/* Weapon choice? */}
                 {/* Maybe a free item? */}
-                {/* <AliceCarousel mouseTracking items={items} disableDotsControls={true} disableButtonsControls={true}/> */}
-                <Carousel infiniteLoop={true} showThumbs={false} width='50%' centerMode={true} showStatus={false} showIndicators={false} emulateTouch={true} onChange={handleChange}>
-                <div>
+                <div className="carousel-wrapper">
+                <Carousel showThumbs={false} width='50%' centerMode={true} showStatus={false} showIndicators={false} emulateTouch={true} onChange={handleChange}>
+                <div >
                     <img src={require('../../assets/Ranger.png')} />
                     <p className="legend">Legend 1</p>
                 </div>
@@ -47,7 +53,31 @@ const PcCreation = () => {
                 </div>
             </Carousel>
             <p>{character.portrait}</p>
-                        </>
+            </div>
+            
+            {character.portrait === 0 ? <p>Ranger Text</p> : null}
+            {character.portrait === 1 ? <p>Mage Text</p> : null}
+            {character.portrait === 2 ? <p>Fighter Text</p> : null}
+
+            <div>
+                <div>
+                    <button id="strengthUp" onClick={statButtonHandler}>▲</button>
+                    <p>{character.stats.strength}</p>
+                    <button id="strengthDn" onClick={statButtonHandler}>▼</button>
+                </div>
+                <div>
+                    <button id="dexterityUp" onClick={statButtonHandler}>▲</button>
+                    <p>{character.stats.dexterity}</p>
+                    <button id="dexterityDn" onClick={statButtonHandler}>▼</button>
+                </div>
+                <div>
+                    <button id="intelligenceUp" onClick={statButtonHandler}>▲</button>
+                    <p>{character.stats.intelligence}</p>
+                    <button id="intelligenceDn" onClick={statButtonHandler}>▼</button>
+
+                </div>
+            </div>
+                 </div>
                     )
 
 }

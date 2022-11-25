@@ -18,7 +18,7 @@ const useHotKeyFunc = (direction, currentRoom, roomTravel) => {
         
         document.addEventListener('keydown', handleKeyDown);
 
-        return function cleanup() { //Cleans event listener after each render
+        return function cleanup() { //Cleans event listener after each render, without this listeners stack indefinitely on every key press, slowing and eventually crashing browser
             document.removeEventListener('keydown', handleKeyDown);
         }
         

@@ -655,4 +655,28 @@ form, label, input{
   margin: auto;
 }
 
+.carousel-root {
+  /* margin: 20; */
+  /* max-height: 100%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+/* .carousel-slider {
+  margin: 20;
+  max-height: 100%;
+} */
+
+.carousel-wrapper {
+  display: flex;
+  flex-direction: column;
+  /* margin-left: 20%; */
+  /* margin-right: auto; */
+  /* padding-left: auto; */
+  /* padding-right: auto; */
+  align-items: center;
+  /* justify-content: center; */
+  /* width: 50%; */
+  /* height: 200px; */
+}
