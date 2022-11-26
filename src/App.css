@@ -680,3 +680,7 @@ form, label, input{
   /* width: 50%; */
   /* height: 200px; */
 }
+
+.statCreationField {
+  display: flex;
+}

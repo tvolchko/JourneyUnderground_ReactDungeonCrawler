@@ -60,21 +60,29 @@ const PcCreation = () => {
             {character.portrait === 2 ? <p>Fighter Text</p> : null}
 
             <div>
-                <div>
-                    <button id="strengthUp" onClick={statButtonHandler}>▲</button>
-                    <p>{character.stats.strength}</p>
-                    <button id="strengthDn" onClick={statButtonHandler}>▼</button>
+                <div className="statCreationField"> 
+                    <div>
+                        <button id="strengthUp" onClick={statButtonHandler}>▲</button>
+                        <p>{character.stats.strength}</p>
+                        <button id="strengthDn" onClick={statButtonHandler}>▼</button>
+                    </div>
+                    <p>Stat Info</p>
                 </div>
-                <div>
-                    <button id="dexterityUp" onClick={statButtonHandler}>▲</button>
-                    <p>{character.stats.dexterity}</p>
-                    <button id="dexterityDn" onClick={statButtonHandler}>▼</button>
+                <div className="statCreationField">
+                    <div>
+                        <button id="dexterityUp" onClick={statButtonHandler}>▲</button>
+                        <p>{character.stats.dexterity}</p>
+                        <button id="dexterityDn" onClick={statButtonHandler}>▼</button>
+                    </div>
+                    <p>Stat Info</p>
                 </div>
-                <div>
-                    <button id="intelligenceUp" onClick={statButtonHandler}>▲</button>
-                    <p>{character.stats.intelligence}</p>
-                    <button id="intelligenceDn" onClick={statButtonHandler}>▼</button>
-
+                <div className="statCreationField">
+                    <div>
+                        <button id="intelligenceUp" onClick={statButtonHandler}>▲</button>
+                        <p>{character.stats.intelligence}</p>
+                        <button id="intelligenceDn" onClick={statButtonHandler}>▼</button>
+                    </div>
+                    <p>Stat Info</p>
                 </div>
             </div>
                  </div>
