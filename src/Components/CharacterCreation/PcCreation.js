@@ -2,9 +2,10 @@ import React from "react";
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { submitCharacter } from "../../actions";
 
 
-const PcCreation = () => {
+const PcCreation = ({dispatch, player}) => {
     const initialState = {
         portrait: 0,
         stats: {
@@ -16,6 +17,8 @@ const PcCreation = () => {
         weapon: null,
         item: null,
     }
+
+
     const Carousel = require('react-responsive-carousel').Carousel;
     const [character, setCharacter] = useState(initialState)
     const [valid, setValid] = useState(false)
@@ -51,10 +54,21 @@ const PcCreation = () => {
 
     }, [character])
 
-    
+    const submitNewCharacter = () => {
+        let inv = [character.weapon, character.item]
+        const newChar = {
+            portrait: character.portrait,
+            strength: character.stats.strength,
+            dexterity: character.stats.dexterity,
+            intelligence: character.stats.intelligence,
+        }
+        dispatch(submitCharacter(newChar, inv))
+        // console.log(player)
+    }
 
     return (
-        <div >    {/* Probably its own component */}
+        <div className="CCreationMenu">    {/* Probably its own component */}
+            
                 {/* Some kind of portrait selction */}
                 {/* Stat selection? */}
                 {/* Weapon choice? */}
@@ -127,7 +141,7 @@ const PcCreation = () => {
                     {character.item === 'key' ? <p>description of key</p> : null}
                     {character.item === 'potion' ? <p>description of potion</p> : null}
                 </div>
-                {valid === true ? <button>Test</button> : null}
+                {valid === true ? <button onClick={submitNewCharacter}>Test</button> : null}
             
         </div>
                     )
@@ -140,4 +154,4 @@ const mapState = (state) => {
     }
 }
 
-export default connect()(PcCreation)
+export default connect(mapState)(PcCreation)

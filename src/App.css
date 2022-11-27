@@ -11,7 +11,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -261,9 +261,10 @@ form, label, input{
 
 .pageContainer {
   display: flex;
-  flex-flow: row no-wrap;
-  width: 100%;
-  max-height: 100vh;
+
+  /* flex-flow: row no-wrap; */
+  width: 50%;
+  /* max-height: 100vh; */
   /* margin: auto; */
 }
 
@@ -272,7 +273,7 @@ form, label, input{
 }
 
 #cSheet {
-  max-width: 50%;
+  /* max-width: 50%; */
   border: 6px solid black;
   margin: 1%;
   display: flex;
@@ -531,8 +532,9 @@ form, label, input{
   width: 100%;
 }
 .roomContainer{
-  max-width: 100%;
-  margin: 1%;
+  /* max-width: 100%; */
+  width:50%;
+  /* margin: 1%; */
 }
 
 .roomContainer div{
@@ -689,6 +691,7 @@ form, label, input{
 .weaponSelect {
   display: flex;
   justify-content: space-around;
+  width: 100%;
 
 }
 
@@ -698,4 +701,13 @@ form, label, input{
 
 .weaponHighlight {
   border: 1px solid white;
+}
+
+.CCreationMenu {
+  /* width: 50%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 100%
 }

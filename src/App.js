@@ -14,13 +14,14 @@ const store = createStore(reducer, applyMiddleware(thunk, logger))
 function App() {
   return (
     <Provider store={store}>
-    <div className="App">
+    <div className="App" style={{maxHeight:'100vh'}}>
       <header className="App-header">
         <Header/>
       </header>
- 
+      <div style={{display:'flex', maxHeight:'100%'}}>
       <CSheet/>
       <RightSide/>
+      </div>
 
     </div>
     </Provider>

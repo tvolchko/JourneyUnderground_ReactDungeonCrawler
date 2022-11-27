@@ -1,4 +1,4 @@
-import {EXPLORE_ROOM, LOOT_ROOM, BEGIN_COMBAT, COMBAT_ACTION, END_COMBAT} from '../actions/index'
+import {EXPLORE_ROOM, LOOT_ROOM, BEGIN_COMBAT, COMBAT_ACTION, END_COMBAT, SUBMIT_CHARACTER} from '../actions/index'
 import { itemArr } from "../Libraries/Items";
 import enemyArr from "../Libraries/Enemies";
 import { floors } from "../Libraries/Rooms";
@@ -7,6 +7,7 @@ import { roomArr } from '../Libraries/Rooms';
 
 export const initialState = {
     player: {
+        portait: null,
         name: 'Bill the Barbarian',
         strength: 5,
         dexterity: 4,
@@ -86,6 +87,15 @@ const reducer = (state= initialState, action)=>{
                 rooms: copyRoomArr,
                 currentRoom: defeatedRoom,
                 enemy: null
+            }
+        }
+
+        case SUBMIT_CHARACTER : {
+
+            return {
+                ...state,
+                inventory: action.payload[1],
+                player: {...state.player, ...action.payload[0]}
             }
         }
 

@@ -4,7 +4,7 @@ export const LOOT_ROOM = 'LOOT_ROOM'
 export const BEGIN_COMBAT = 'BEGIN_COMBAT'
 export const COMBAT_ACTION = 'COMBAT_ACTION'
 export const END_COMBAT = 'END_COMBAT'
-
+export const SUBMIT_CHARACTER = 'SUBMIT_CHARACTER'
 
 
 export const exploreRoom = (rmId, mapId) => {
@@ -25,4 +25,8 @@ export const combatAction = (enemy, player) => {
 
 export const endCombat = () => {
     return({type: END_COMBAT})
+}
+
+export const submitCharacter = (char, inv) => {
+    return({type: SUBMIT_CHARACTER, payload: [char, inv]})
 }
