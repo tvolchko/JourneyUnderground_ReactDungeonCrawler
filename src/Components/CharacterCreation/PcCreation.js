@@ -10,6 +10,7 @@ const PcCreation = () => {
             strength: 1,
             dexterity: 1,
             intelligence: 1,
+            freePoints: 5,
         },
     }
     const Carousel = require('react-responsive-carousel').Carousel;
@@ -20,12 +21,12 @@ const PcCreation = () => {
     const statButtonHandler = (e) => {
         const stat = e.currentTarget.id.slice(0, -2) 
         const direction = e.currentTarget.id.slice(-2)
-        if(character.stats[stat] === 1 && direction === 'Dn') {
+        if(character.stats[stat] === 1 && direction === 'Dn' || direction === 'Up' && character.stats.freePoints === 0) {
             return null
         } else {
             setCharacter({
                 ...character,
-                stats: {...character.stats, [stat]: direction === 'Up' ? character.stats[stat] + 1 : character.stats[stat] - 1}
+                stats: {...character.stats, [stat]: direction === 'Up' ? character.stats[stat] + 1 : character.stats[stat] - 1, freePoints: direction === 'Up' ? character.stats.freePoints - 1 : character.stats.freePoints +1}
             })
         }
         
@@ -60,13 +61,14 @@ const PcCreation = () => {
             {character.portrait === 2 ? <p>Fighter Text</p> : null}
 
             <div>
+                <p>{character.stats.freePoints} free points remain</p>
                 <div className="statCreationField"> 
                     <div>
                         <button id="strengthUp" onClick={statButtonHandler}>▲</button>
                         <p>{character.stats.strength}</p>
                         <button id="strengthDn" onClick={statButtonHandler}>▼</button>
                     </div>
-                    <p>Stat Info</p>
+                    <p>Strength Stat Info</p>
                 </div>
                 <div className="statCreationField">
                     <div>
@@ -74,7 +76,7 @@ const PcCreation = () => {
                         <p>{character.stats.dexterity}</p>
                         <button id="dexterityDn" onClick={statButtonHandler}>▼</button>
                     </div>
-                    <p>Stat Info</p>
+                    <p>Dexterity Stat Info</p>
                 </div>
                 <div className="statCreationField">
                     <div>
@@ -82,10 +84,14 @@ const PcCreation = () => {
                         <p>{character.stats.intelligence}</p>
                         <button id="intelligenceDn" onClick={statButtonHandler}>▼</button>
                     </div>
-                    <p>Stat Info</p>
+                    <p>Intelligence Stat Info</p>
                 </div>
             </div>
-                 </div>
+            <p>Select a weapon!</p>
+            <div className="statCreationField">
+                <img />
+            </div>
+        </div>
                     )
 
 }

@@ -683,4 +683,5 @@ form, label, input{
 
 .statCreationField {
   display: flex;
+  justify-content: center;
 }
