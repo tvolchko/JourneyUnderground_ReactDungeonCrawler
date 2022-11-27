@@ -1,6 +1,7 @@
 import React from "react";
 import 'react-alice-carousel/lib/alice-carousel.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { connect } from "react-redux";
 
 
 const PcCreation = () => {
@@ -10,18 +11,20 @@ const PcCreation = () => {
             strength: 1,
             dexterity: 1,
             intelligence: 1,
-            freePoints: 5,
+            freePoints: 9,
         },
         weapon: null,
+        item: null,
     }
     const Carousel = require('react-responsive-carousel').Carousel;
     const [character, setCharacter] = useState(initialState)
+    const [valid, setValid] = useState(false)
     const handleChange = (idx) => {
-        setCharacter({...character, portrait: idx})
+        setCharacter({...character, portrait: idx})  
     }
     const statButtonHandler = (e) => {
         const stat = e.currentTarget.id.slice(0, -2) 
-        const direction = e.currentTarget.id.slice(-2)
+        const direction = e.currentTarget.id.slice(-2)  
         if(character.stats[stat] === 1 && direction === 'Dn' || direction === 'Up' && character.stats.freePoints === 0) {
             return null
         } else {
@@ -32,12 +35,23 @@ const PcCreation = () => {
         }
     }
 
-    const weaponHandler = (e) => {
+    const selectorHandler = (e) => {
+        const position = e.target.getAttribute('data')
         setCharacter({
             ...character,
-            weapon: character.weapon != e.target.id ? e.target.id : null,
+            [position]: character[position] != e.target.id ? e.target.id : null,
         })
     }
+    useEffect(() => {
+        if(character.stats.freePoints === 0 && character.weapon != null && character.item != null){
+            setValid(true)
+        } else if(character.stats.freePoints != 0 || character.weapon === null || character.item === null){
+            setValid(false)
+        }
+
+    }, [character])
+
+    
 
     return (
         <div >    {/* Probably its own component */}
@@ -67,7 +81,7 @@ const PcCreation = () => {
             {character.portrait === 1 ? <p>Mage Text</p> : null}
             {character.portrait === 2 ? <p>Fighter Text</p> : null}
 
-            <div>
+            <div style={{display: 'flex'}}>
                 <p>{character.stats.freePoints} free points remain</p>
                 <div className="statCreationField"> 
                     <div>
@@ -96,21 +110,34 @@ const PcCreation = () => {
             </div>
         
                 <p>Select a weapon!</p>
-                <div className="weaponSelect" style={{display: 'flex'}}>
-                    <img id='magic' onClick={weaponHandler} className={character.weapon === 'magic' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/magic-weapons/magicweapon_2.png")}/>
-                    <img id='axe' onClick={weaponHandler} className={character.weapon === 'axe' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/magic-weapons/magicweapon_2.png")}/>
-                    <img id='sword' onClick={weaponHandler} className={character.weapon === 'sword' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/magic-weapons/magicweapon_2.png")}/>
-                    <img id='bow' onClick={weaponHandler} className={character.weapon === 'bow' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/magic-weapons/magicweapon_2.png")}/>
+                <div className="weaponSelect">
+                    <img id='magic' onClick={selectorHandler} data={'weapon'} className={character.weapon === 'magic' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/magic-weapons/magicweapon_2.png")}/>
+                    <img id='axe' onClick={selectorHandler} data={'weapon'} className={character.weapon === 'axe' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/axes/axe_3.png")}/>
+                    <img id='sword' onClick={selectorHandler} data={'weapon'} className={character.weapon === 'sword' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/swords/sword_2.png")}/>
+                    <img id='bow' onClick={selectorHandler} data={'weapon'} className={character.weapon === 'bow' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/bows/bow_3.png")}/>
                     {character.weapon === 'magic' ? <p>description of magic weapon</p> : null}
                     {character.weapon === 'axe' ? <p>description of axe weapon</p> : null}
                     {character.weapon === 'sword' ? <p>description of sword weapon</p> : null}
                     {character.weapon === 'bow' ? <p>description of ranged weapon</p> : null}
                 </div>
-                
+                <p>Select one starting item!</p>
+                <div className="weaponSelect">
+                    <img id='key' data={'item'} onClick={selectorHandler} className={character.item === 'key' ? 'weaponHighlight' : null} src={require('../../assets/Key.png')}/>
+                    <img id='potion' data={'item'} onClick={selectorHandler} className={character.item === 'potion' ? 'weaponHighlight' : null} src={require('../../assets/Potion.png')}/>
+                    {character.item === 'key' ? <p>description of key</p> : null}
+                    {character.item === 'potion' ? <p>description of potion</p> : null}
+                </div>
+                {valid === true ? <button>Test</button> : null}
             
         </div>
                     )
 
 }
 
-export default PcCreation
+const mapState = (state) => {
+    return {
+        player: state.player
+    }
+}
+
+export default connect()(PcCreation)

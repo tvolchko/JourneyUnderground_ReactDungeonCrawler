@@ -693,7 +693,7 @@ form, label, input{
 }
 
 .weaponSelect img {
-  min-width: 10%;
+  width: 10%;
 }
 
 .weaponHighlight {

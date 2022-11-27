@@ -6,6 +6,7 @@ export const COMBAT_ACTION = 'COMBAT_ACTION'
 export const END_COMBAT = 'END_COMBAT'
 
 
+
 export const exploreRoom = (rmId, mapId) => {
     return ({ type: EXPLORE_ROOM, payload: [rmId, mapId]})
 }

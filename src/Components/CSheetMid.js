@@ -9,7 +9,7 @@ const CSheetMid = ({player}) => { // Renders player stats
                     <div className="cSheetPlayerStats">
                         <div><p className ="stat">Strength:</p><p id="cSheetStatField1" className = "stat">{player.strength}</p></div>
                         <div><p className ="stat">Dexterity:</p><p id="cSheetStatField2" className = "stat">{player.dexterity}</p></div>
-                        <div><p className ="stat">Constitution:</p><p id="cSheetStatField3" className = "stat">{player.constitution}</p></div>
+                        <div><p className ="stat">Intelligence:</p><p id="cSheetStatField3" className = "stat">{player.intelligence}</p></div>
                     </div>
                     <div className="cSheetPlayerValues">
 
