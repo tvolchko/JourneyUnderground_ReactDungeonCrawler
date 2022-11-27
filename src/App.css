@@ -685,3 +685,17 @@ form, label, input{
   display: flex;
   justify-content: center;
 }
+
+.weaponSelect {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.weaponSelect img {
+  min-width: 10%;
+}
+
+.weaponHighlight {
+  border: 1px solid white;
+}

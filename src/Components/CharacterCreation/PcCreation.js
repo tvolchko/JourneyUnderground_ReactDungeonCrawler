@@ -12,6 +12,7 @@ const PcCreation = () => {
             intelligence: 1,
             freePoints: 5,
         },
+        weapon: null,
     }
     const Carousel = require('react-responsive-carousel').Carousel;
     const [character, setCharacter] = useState(initialState)
@@ -29,7 +30,13 @@ const PcCreation = () => {
                 stats: {...character.stats, [stat]: direction === 'Up' ? character.stats[stat] + 1 : character.stats[stat] - 1, freePoints: direction === 'Up' ? character.stats.freePoints - 1 : character.stats.freePoints +1}
             })
         }
-        
+    }
+
+    const weaponHandler = (e) => {
+        setCharacter({
+            ...character,
+            weapon: character.weapon != e.target.id ? e.target.id : null,
+        })
     }
 
     return (
@@ -38,22 +45,22 @@ const PcCreation = () => {
                 {/* Stat selection? */}
                 {/* Weapon choice? */}
                 {/* Maybe a free item? */}
-                <div className="carousel-wrapper">
+            <div className="carousel-wrapper">
                 <Carousel showThumbs={false} width='50%' centerMode={true} showStatus={false} showIndicators={false} emulateTouch={true} onChange={handleChange}>
-                <div >
-                    <img src={require('../../assets/Ranger.png')} />
-                    <p className="legend">Legend 1</p>
-                </div>
-                <div>
-                    <img src={require('../../assets/Blue_Mage.jpeg')} />
-                    <p className="legend">Legend 2</p>
-                </div>
-                <div>
-                    <img src={require('../../assets/Little_Warrior_Guy.png')} />
-                    <p className="legend">Legend 3</p>
-                </div>
-            </Carousel>
-            <p>{character.portrait}</p>
+                    <div >
+                        <img src={require('../../assets/Ranger.png')} />
+                        <p className="legend">Legend 1</p>
+                    </div>
+                    <div>
+                        <img src={require('../../assets/Blue_Mage.jpeg')} />
+                        <p className="legend">Legend 2</p>
+                    </div>
+                    <div>
+                        <img src={require('../../assets/Little_Warrior_Guy.png')} />
+                        <p className="legend">Legend 3</p>
+                    </div>
+                </Carousel>
+                <p>{character.portrait}</p>
             </div>
             
             {character.portrait === 0 ? <p>Ranger Text</p> : null}
@@ -87,10 +94,20 @@ const PcCreation = () => {
                     <p>Intelligence Stat Info</p>
                 </div>
             </div>
-            <p>Select a weapon!</p>
-            <div className="statCreationField">
-                <img />
-            </div>
+        
+                <p>Select a weapon!</p>
+                <div className="weaponSelect" style={{display: 'flex'}}>
+                    <img id='magic' onClick={weaponHandler} className={character.weapon === 'magic' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/magic-weapons/magicweapon_2.png")}/>
+                    <img id='axe' onClick={weaponHandler} className={character.weapon === 'axe' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/magic-weapons/magicweapon_2.png")}/>
+                    <img id='sword' onClick={weaponHandler} className={character.weapon === 'sword' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/magic-weapons/magicweapon_2.png")}/>
+                    <img id='bow' onClick={weaponHandler} className={character.weapon === 'bow' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/magic-weapons/magicweapon_2.png")}/>
+                    {character.weapon === 'magic' ? <p>description of magic weapon</p> : null}
+                    {character.weapon === 'axe' ? <p>description of axe weapon</p> : null}
+                    {character.weapon === 'sword' ? <p>description of sword weapon</p> : null}
+                    {character.weapon === 'bow' ? <p>description of ranged weapon</p> : null}
+                </div>
+                
+            
         </div>
                     )
 
