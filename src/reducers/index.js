@@ -9,15 +9,15 @@ export const initialState = {
     player: {
         portait: null,
         name: 'Bill the Barbarian',
-        strength: 5,
-        dexterity: 4,
-        intelligence: 0,
+        strength: null,
+        dexterity: null,
+        intelligence: null,
         hpCurrent: 10,
         hpTotal: 10,
         armor: 15,
         tempArmor: 0,
         dmg: 4,
-        room: 0,
+        weapon: null
         
     },
     inventory: [],

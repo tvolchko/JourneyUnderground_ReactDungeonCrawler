@@ -14,7 +14,7 @@ const RightSide = ({enemy}) => {
                             </div> 
                             <div>
                                 <Controls/> {/* Dyanamically renders options for player based on choices available in current room*/ }
-                                <PcCreation/>
+                                {/* <PcCreation/> */}
                             </div>
                         </div>
         )

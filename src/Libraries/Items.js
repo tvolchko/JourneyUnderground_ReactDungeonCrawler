@@ -45,4 +45,34 @@ const key = new Item({
     imgSrc: require('../assets/Potion.png')
   
   })
+  const axe1 = new Item({
+    name: 'axe1',
+    itemId: 2,
+    imgSrc: require('../assets/rpg_assets/axes/axe_3.png')
+  })
+  const bow1 = new Item({
+    name: 'bow1',
+    itemId: 2,
+    imgSrc: require('../assets/rpg_assets/bows/bow_3.png')
+  })
+  const sword1 = new Item({
+    name: 'sword1',
+    itemId: 2,
+    imgSrc: require('../assets/rpg_assets/swords/sword_2.png')
+  })
+  const magicWeapon1 = new Item({
+    name: 'magicWeapon1',
+    itemId: 2,
+    imgSrc: require('../assets/rpg_assets/magic-weapons/magicweapon_2.png')
+  })
   export const itemArr = [key, potion]
+
+  export const itemObj = {
+    key,
+    potion,
+    axe1,
+    bow1,
+    sword1,
+    magicWeapon1,
+
+  }

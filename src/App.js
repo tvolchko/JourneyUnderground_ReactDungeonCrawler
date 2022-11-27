@@ -8,6 +8,7 @@ import thunk from "redux-thunk";
 import reducer from './reducers';
 import RightSide from './Components/RightSide';
 
+
 const store = createStore(reducer, applyMiddleware(thunk, logger))
 
 

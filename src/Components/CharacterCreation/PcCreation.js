@@ -55,19 +55,33 @@ const PcCreation = ({dispatch, player}) => {
     }, [character])
 
     const submitNewCharacter = () => {
-        let inv = [character.weapon, character.item]
+        let inv = [character.item]
         const newChar = {
             portrait: character.portrait,
             strength: character.stats.strength,
             dexterity: character.stats.dexterity,
             intelligence: character.stats.intelligence,
+            weapon: character.weapon
         }
         dispatch(submitCharacter(newChar, inv))
         // console.log(player)
     }
 
+    const devSkip = () => {
+        let inv = ['potion']
+        const newChar = {
+            portrait: 0,
+            strength: 5,
+            dexterity: 5,
+            intelligence: 5,
+            weapon: 'axe1'
+        }
+        dispatch(submitCharacter(newChar, inv))
+    }
+
     return (
         <div className="CCreationMenu">    {/* Probably its own component */}
+        <button onClick={devSkip}>Dev skip</button>
             
                 {/* Some kind of portrait selction */}
                 {/* Stat selection? */}
@@ -125,14 +139,14 @@ const PcCreation = ({dispatch, player}) => {
         
                 <p>Select a weapon!</p>
                 <div className="weaponSelect">
-                    <img id='magic' onClick={selectorHandler} data={'weapon'} className={character.weapon === 'magic' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/magic-weapons/magicweapon_2.png")}/>
-                    <img id='axe' onClick={selectorHandler} data={'weapon'} className={character.weapon === 'axe' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/axes/axe_3.png")}/>
-                    <img id='sword' onClick={selectorHandler} data={'weapon'} className={character.weapon === 'sword' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/swords/sword_2.png")}/>
-                    <img id='bow' onClick={selectorHandler} data={'weapon'} className={character.weapon === 'bow' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/bows/bow_3.png")}/>
-                    {character.weapon === 'magic' ? <p>description of magic weapon</p> : null}
-                    {character.weapon === 'axe' ? <p>description of axe weapon</p> : null}
-                    {character.weapon === 'sword' ? <p>description of sword weapon</p> : null}
-                    {character.weapon === 'bow' ? <p>description of ranged weapon</p> : null}
+                    <img id='magicWeapon1' onClick={selectorHandler} data={'weapon'} className={character.weapon === 'magicWeapon1' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/magic-weapons/magicweapon_2.png")}/>
+                    <img id='axe1' onClick={selectorHandler} data={'weapon'} className={character.weapon === 'axe1' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/axes/axe_3.png")}/>
+                    <img id='sword1' onClick={selectorHandler} data={'weapon'} className={character.weapon === 'sword1' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/swords/sword_2.png")}/>
+                    <img id='bow1' onClick={selectorHandler} data={'weapon'} className={character.weapon === 'bow1' ? 'weaponHighlight' : null} src={require("../../assets/rpg_assets/bows/bow_3.png")}/>
+                    {character.weapon === 'magicWeapon1' ? <p>description of magic weapon</p> : null}
+                    {character.weapon === 'axe1' ? <p>description of axe weapon</p> : null}
+                    {character.weapon === 'sword1' ? <p>description of sword weapon</p> : null}
+                    {character.weapon === 'bow1' ? <p>description of ranged weapon</p> : null}
                 </div>
                 <p>Select one starting item!</p>
                 <div className="weaponSelect">
@@ -141,7 +155,8 @@ const PcCreation = ({dispatch, player}) => {
                     {character.item === 'key' ? <p>description of key</p> : null}
                     {character.item === 'potion' ? <p>description of potion</p> : null}
                 </div>
-                {valid === true ? <button onClick={submitNewCharacter}>Test</button> : null}
+                {valid === true ? <button onClick={submitNewCharacter}>Create Character!</button> : null}
+                
             
         </div>
                     )

@@ -24,15 +24,16 @@
   color: #61dafb;
 }
 
-/* .mapBox {
-  /* border: 10px, solid, black; */
-  /* padding: 1%; */
-/* } */
+ /* .mapBox { 
+  border: 10px, solid, black;
+  padding: 1%;
+} */
 .mapContainer {
   border: 10px, solid, black;
   display: flex;
   flex-wrap: wrap;
-  width: 40%
+  width: 50%;
+
 }
 section {
   display: block;
@@ -278,6 +279,7 @@ form, label, input{
   margin: 1%;
   display: flex;
   flex-flow: column nowrap;
+  width: 100%;
   /* max-height: 75vh; */
 }
 
@@ -286,6 +288,7 @@ form, label, input{
 .cSheetTop {
   display: flex;
   justify-content: space-between;
+  height: 40%
 }
 
 .cSheetTop p {
@@ -705,9 +708,14 @@ form, label, input{
 
 .CCreationMenu {
   /* width: 50%; */
+  z-index: 1;
   display: flex;
+  position: absolute;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-height: 100%
+  max-height: 100%;
+  width: 50%;
+  margin-left: 20%;
+  margin-bottom: 100vh;
 }

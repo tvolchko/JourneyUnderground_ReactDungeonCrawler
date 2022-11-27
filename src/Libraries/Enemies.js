@@ -19,11 +19,12 @@ const slime = new Enemy({
     name: 'Slime',
     strength: 2,
     dexterity: 3,
-    constitution: 5,
+    intelligence: 5,
     hp: 14,
     dmg: 2,
     armor: 12,
-    enemyImg: require('../assets/purple_blob.png')
+    enemyImg: require('../assets/purple_blob.png'),
+    mainAttk: 'intelligence'
   })
   
   const goblin = new Enemy({
@@ -31,11 +32,12 @@ const slime = new Enemy({
     name: 'Goblin',
     strength: 2,
     dexterity: 4,
-    constitution: 1,
+    intelligence: 1,
     hp: 8,
     dmg: 4,
     armor: 14,
-    enemyImg: require('../assets/goblin.png')
+    enemyImg: require('../assets/goblin.png'),
+    mainAttk: 'intelligence'
   })
   const enemyArr = [slime, goblin]
 
