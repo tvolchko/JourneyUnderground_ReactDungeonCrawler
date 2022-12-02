@@ -20,6 +20,9 @@ const ControlButton = ({dispatch, currentRoom, direction}) => {//These move the 
         dispatch(lootRoom(currentRoom.treasurePresent)) //Takes current room's item Id and loots it to the player's inventory
         //Currently bugged, does not remove treasurePresent from current room
     }
+
+
+    
     if(currentRoom.treasurePresent != null && direction === 'treasurePresent'){ //Treasurepresent will be an Id starting at 0, or null if no loot present
         return (
             <button id= {direction} onClick= {lootRoomButton}>Loot the room!</button>

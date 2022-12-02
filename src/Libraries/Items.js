@@ -48,22 +48,38 @@ const key = new Item({
   const axe1 = new Item({
     name: 'axe1',
     itemId: 2,
-    imgSrc: require('../assets/rpg_assets/axes/axe_3.png')
+    imgSrc: require('../assets/rpg_assets/axes/axe_3.png'),
+    melee: true,
+    ranged: true,
+    magic: false,
+    power: 2,
   })
   const bow1 = new Item({
     name: 'bow1',
     itemId: 2,
-    imgSrc: require('../assets/rpg_assets/bows/bow_3.png')
+    imgSrc: require('../assets/rpg_assets/bows/bow_3.png'),
+    melee: false,
+    ranged: true,
+    magic: false,
+    power: 3,
   })
   const sword1 = new Item({
     name: 'sword1',
     itemId: 2,
-    imgSrc: require('../assets/rpg_assets/swords/sword_2.png')
+    imgSrc: require('../assets/rpg_assets/swords/sword_2.png'),
+    melee: true,
+    ranged: false,
+    magic: false,
+    power: 3,
   })
   const magicWeapon1 = new Item({
     name: 'magicWeapon1',
     itemId: 2,
-    imgSrc: require('../assets/rpg_assets/magic-weapons/magicweapon_2.png')
+    imgSrc: require('../assets/rpg_assets/magic-weapons/magicweapon_2.png'),
+    melee: false,
+    ranged: false,
+    magic: true,
+    power: 3,
   })
   export const itemArr = [key, potion]
 

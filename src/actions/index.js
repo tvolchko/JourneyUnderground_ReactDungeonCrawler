@@ -12,7 +12,7 @@ export const exploreRoom = (rmId, mapId) => {
 }
 
 export const lootRoom = (itemId) => {
-    return({ type: LOOT_ROOM, payload: [itemId]})
+    return({ type: LOOT_ROOM, payload: itemId})
 }
 
 export const beginCombat = (enemyId) => {

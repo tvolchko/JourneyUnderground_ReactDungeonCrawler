@@ -12,7 +12,7 @@ const Map = ({currentRoom}) => {
         return (
             <div className="mapContainer">
             
-                {rooms.map((room, idx) => { // Renders 100 maptiles and passes idx which is used as the mapId key of currentRoom or adjecent rooms
+                {rooms.map((room, idx) => { // Renders 10x10 grid of maptiles and passes idx which is used as the mapId key of currentRoom or adjecent rooms
                     return(
                         <MapTile key={idx} idx={idx}/>
                     )

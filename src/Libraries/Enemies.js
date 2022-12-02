@@ -24,7 +24,9 @@ const slime = new Enemy({
     dmg: 2,
     armor: 12,
     enemyImg: require('../assets/purple_blob.png'),
-    mainAttk: 'intelligence'
+    mainAttk: 'intelligence',
+    secondaryAtk: 'dexterity',
+    weakAtk: 'strength',
   })
   
   const goblin = new Enemy({
@@ -37,7 +39,9 @@ const slime = new Enemy({
     dmg: 4,
     armor: 14,
     enemyImg: require('../assets/goblin.png'),
-    mainAttk: 'intelligence'
+    mainAttk: 'dexterity',
+    secondaryAtk: 'strength',
+    weakAtk: 'magic',
   })
   const enemyArr = [slime, goblin]
 

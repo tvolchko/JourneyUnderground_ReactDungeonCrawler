@@ -3,7 +3,7 @@ import { itemArr } from "../Libraries/Items";
 import enemyArr from "../Libraries/Enemies";
 import { floors } from "../Libraries/Rooms";
 import { roomArr } from '../Libraries/Rooms';
-
+import { itemObj } from '../Libraries/Items';
 
 export const initialState = {
     player: {
@@ -41,7 +41,7 @@ const reducer = (state= initialState, action)=>{
                     currentRoom: state.rooms[action.payload[0]],
                 }
             }
-            const exploredCopy = state.exploredRooms.slice() //Deep copy to sidestep mutation rules
+            const exploredCopy = state.exploredRooms.slice() //Deep copy to sidestep mutation
             exploredCopy[state.currentRoom.floor - 1].push(action.payload[1]) //Pushes newly explored mapId to explored array
             return {
                 ...state,
@@ -51,9 +51,8 @@ const reducer = (state= initialState, action)=>{
         }
 
         case LOOT_ROOM : { //Expects payload: [itemId]
-            const newItem = itemArr.slice(action.payload, action.payload + 1) //Grabs copy of item at itemId
             const newInv = state.inventory.slice() //Mutation avoidance
-            newInv.push(newItem[0]) 
+            newInv.push(action.payload) 
             return {
                 ...state,
                 inventory: newInv

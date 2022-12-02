@@ -1,7 +1,7 @@
 import React from "react";
 import Controls from './Controls'
 import { connect } from "react-redux";
-import FightScreen from "./FightScreen";
+import FightScreen from "./Combat/FightScreen";
 import PcCreation from "./CharacterCreation/PcCreation";
 
 

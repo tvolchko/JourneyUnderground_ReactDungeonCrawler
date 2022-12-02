@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { beginCombat } from "../actions";
+import { beginCombat } from "../../actions";
 import FightControls from "./FightControls";
 import { useEffect } from "react";
 
@@ -28,20 +28,27 @@ const FightScreen = ({dispatch, currentRoom, enemy}) => {
 
                                 <div id = 'enemyStats'>
                                     <div>
-                                        <img id= "enemyHealthImg" src = {require("../assets/heart pixel art.png")}/>
+                                        <img id= "enemyHealthImg" src = {require("../../assets/heart pixel art.png")}/>
                                         <p id="enemyHealth">{enemy.hpCurrent}</p>
                                     </div>
                                     <div>
-                                        <img id="enemyDefenseImg" src= {require('../assets/Shield1.png')}/>
+                                        <img id="enemyDefenseImg" src= {require('../../assets/Shield1.png')}/>
                                         <p id="enemyDefense">{enemy.armor}</p>
                                     </div>
                                     <div>
-                                    <img id="enemyAttackImg" src= {require('../assets/sword_small (1).png')}/>
-                                    <p id= "enemyAttack">{enemy.dmg}</p>
+                                        <img id="enemyAttackImg" src= {require('../../assets/sword_small (1).png')}/>
+                                        <p id= "enemyAttack">{enemy.dmg}</p>
                                     </div>
+                                </div>
+                                <div id="combatText">
+                                   {0 != 0 ? <p>{'ref to generated combat text here'}</p> : null} 
                                 </div>
                                 <div id="fightControls">
                                     <FightControls/>
+                                </div>
+
+                                <div>
+                                    {/* character stats here? */}
                                 </div>
                             </div> 
     )

@@ -102,7 +102,7 @@ const PcCreation = ({dispatch, player}) => {
                         <p className="legend">Legend 3</p>
                     </div>
                 </Carousel>
-                <p>{character.portrait}</p>
+                
             </div>
             
             {character.portrait === 0 ? <p>Ranger Text</p> : null}
