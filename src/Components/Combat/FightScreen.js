@@ -5,7 +5,7 @@ import FightControls from "./FightControls";
 import { useEffect } from "react";
 
 
-const FightScreen = ({dispatch, currentRoom, enemy}) => {
+const FightScreen = ({dispatch, currentRoom, enemy, readOutText}) => {
 
     
     useEffect(() => {
@@ -41,7 +41,7 @@ const FightScreen = ({dispatch, currentRoom, enemy}) => {
                                     </div>
                                 </div>
                                 <div id="combatText">
-                                   {0 != 0 ? <p>{'ref to generated combat text here'}</p> : null} 
+                                   {readOutText ? <><p>{readOutText[0]}</p><br></br><p>{readOutText[1]}</p></> : null} 
                                 </div>
                                 <div id="fightControls">
                                     <FightControls/>
@@ -56,7 +56,8 @@ const FightScreen = ({dispatch, currentRoom, enemy}) => {
 const mapState = (state) => {
     return {
         enemy: state.enemy,
-        currentRoom: state.currentRoom
+        currentRoom: state.currentRoom,
+        readOutText: state.readOutText,
     }
 }
 

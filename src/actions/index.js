@@ -19,8 +19,8 @@ export const beginCombat = (enemyId) => {
     return({type: BEGIN_COMBAT, payload: enemyId})
 }
 
-export const combatAction = (enemy, player) => {
-    return({type: COMBAT_ACTION, payload: [enemy, player]})
+export const combatAction = (enemy, player, text) => {
+    return({type: COMBAT_ACTION, payload: [enemy, player, text]})
 }
 
 export const endCombat = () => {

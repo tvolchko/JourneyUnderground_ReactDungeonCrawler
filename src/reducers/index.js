@@ -27,7 +27,7 @@ export const initialState = {
     exploredRooms: [[67], [64], [64]],
     lootedRooms: [],
     rooms: roomArr,
-    ReadOutText: []
+    readOutText: []
     
 }
 
@@ -72,7 +72,8 @@ const reducer = (state= initialState, action)=>{
             return {
                 ...state,
                 player: action.payload[1],
-                enemy: action.payload[0]
+                enemy: action.payload[0],
+                readOutText: action.payload[2]
             }
         }
 
