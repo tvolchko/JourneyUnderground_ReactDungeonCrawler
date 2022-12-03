@@ -10,7 +10,8 @@ const FightScreen = ({dispatch, currentRoom, enemy, readOutText}) => {
     
     useEffect(() => {
         if(currentRoom.enemyPresent != null){ //Moves appropriate enemy to the enemy state to be used to render its stats here
-            dispatch(beginCombat(currentRoom.enemyPresent))
+
+            dispatch(beginCombat(currentRoom.enemyPresent, "You've encountered an angry "))
         }
     }, [currentRoom.enemyPresent])
 

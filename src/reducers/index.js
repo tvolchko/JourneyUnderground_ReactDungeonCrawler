@@ -60,10 +60,11 @@ const reducer = (state= initialState, action)=>{
         }
 
         case BEGIN_COMBAT : { //Expects payload: [enemyId]. Enemy being added to state will cause the fightScreen to render automatically
-            const newEnemy = enemyArr.slice(action.payload, action.payload + 1) //Grabs copy of enemy at enemyId
+            const newEnemy = enemyArr.slice(action.payload[0], action.payload[0] + 1) //Grabs copy of enemy at enemyId
             return {
                 ...state,
-                enemy: newEnemy[0]
+                enemy: newEnemy[0],
+                readOutText: [`${action.payload[1] + newEnemy[0].name}`]
             }
         }
 
@@ -86,7 +87,8 @@ const reducer = (state= initialState, action)=>{
                 ...state,
                 rooms: copyRoomArr,
                 currentRoom: defeatedRoom,
-                enemy: null
+                enemy: null,
+                readOutText: []
             }
         }
 

@@ -15,8 +15,8 @@ export const lootRoom = (itemId) => {
     return({ type: LOOT_ROOM, payload: itemId})
 }
 
-export const beginCombat = (enemyId) => {
-    return({type: BEGIN_COMBAT, payload: enemyId})
+export const beginCombat = (enemyId, text) => {
+    return({type: BEGIN_COMBAT, payload:[enemyId, text]})
 }
 
 export const combatAction = (enemy, player, text) => {

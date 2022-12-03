@@ -33,42 +33,45 @@ const FightControls = ({dispatch, enemy, player}) => {
             combatAdv = 'enemy'
         }
         console.log(e.target.getAttribute('data'))
-        switch(playerAtkType){
-            case 'strength' : 
-                switch (enemyAtkType) {
-                    case 'dexterity' : 
-                        playerAdv();
-                        break;
-                    case 'intelligence' :
-                        enemyAdv();
-                        break;
-                    default : console.log('advantage switch error 1')
-                };
-                break;
-            case 'dexterity' : 
-                switch (enemyAtkType) {
-                    case 'strength' : 
-                        enemyAdv();
-                        break;
-                    case 'intelligence' : 
-                        playerAdv();
-                        break;
-                    default : {console.log('advantage switch error 2')}
-                };
-                break;
-            case 'intelligence' : 
-                switch (enemyAtkType) {                   
-                    case 'strength' : 
-                        playerAdv();
-                        break;
-                    case 'dexterity' : 
-                        enemyAdv();
-                        break;
-                    default : {console.log('advantage switch error 3')}
-                };
-                break;
-            default : {console.log('advantage switch error 4')}
-        }
+        const advFunc = () => {
+            switch(playerAtkType){
+                case 'strength' : 
+                    switch (enemyAtkType) {
+                        case 'dexterity' : 
+                            playerAdv();
+                            break;
+                        case 'intelligence' :
+                            enemyAdv();
+                            break;
+                        default : return null
+                    };
+                    break;
+                case 'dexterity' : 
+                    switch (enemyAtkType) {
+                        case 'strength' : 
+                            enemyAdv();
+                            break;
+                        case 'intelligence' : 
+                            playerAdv();
+                            break;
+                        default : return null
+                    };
+                    break;
+                case 'intelligence' : 
+                    switch (enemyAtkType) {                   
+                        case 'strength' : 
+                            playerAdv();
+                            break;
+                        case 'dexterity' : 
+                            enemyAdv();
+                            break;
+                        default : return null
+                    };
+                    break;
+                default : {console.log('advantage switch error 4')}
+            }
+        }  
+        advFunc()
         console.log(playerDmg)
         const combatText = () => {
             switch (combatAdv) {
@@ -88,20 +91,28 @@ const FightControls = ({dispatch, enemy, player}) => {
         
         combatEnemy.hpCurrent = combatEnemy.hpCurrent - playerDmg
         combatPlayer.hpCurrent = combatPlayer.hpCurrent - enemyDmg
-        dispatch(combatAction(combatEnemy, combatPlayer, combatText()))
         if(combatEnemy.hpCurrent <= 0){
-            dispatch(endCombat())
+            combatEnemy.hpCurrent = 0
         }
+        dispatch(combatAction(combatEnemy, combatPlayer, combatText()))
+    }
+    const endCombatFunc = () => {
+        dispatch(endCombat())
     }
     
 
-    return (
+    if(enemy.hpCurrent > 0){ 
+        return (
         <>
         <button className={'combatButton'} data={'strength'} onClick={attack}>Attack with melee!</button>
         <button className={'combatButton'} data={'dexterity'} onClick={attack}>Attack with ranged!</button>
         <button className={'combatButton'} data={'intelligence'} onClick={attack}>Attack with magic!</button>
         </>
-    )
+    )} else {
+        return (
+            <button className={'combatButton'}onClick={endCombatFunc}>You've won the battle!</button>
+        )
+    }
 }
 
 const mapState = (state) => {
