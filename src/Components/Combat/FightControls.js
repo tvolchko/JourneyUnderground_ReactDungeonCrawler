@@ -8,9 +8,8 @@ const FightControls = ({dispatch, enemy, player}) => {
     const attack = (e) => {
         const combatEnemy = JSON.parse(JSON.stringify(enemy)) //Deep copy combatant's state
         const combatPlayer = JSON.parse(JSON.stringify(player))
-        const playerAtkType = e.target.getAttribute('data')
-        let enemyAtkType = Math.floor(Math.random() * 20) + 1
-        console.log(enemyAtkType)
+        const playerAtkType = e.target.getAttribute('data') //Recieves attack stat from button pressed
+        let enemyAtkType = Math.floor(Math.random() * 20) + 1 // Randomizes enemy attack choice, weighted towards its highest stat
         if(enemyAtkType > 9){
             enemyAtkType = enemy.mainAtk
         } else if(enemyAtkType > 3){
@@ -18,11 +17,10 @@ const FightControls = ({dispatch, enemy, player}) => {
         } else {
             enemyAtkType = enemy.weakAtk
         }
-        console.log(enemyAtkType)
         let playerDmg = player[playerAtkType]
         let enemyDmg = enemy[enemyAtkType]
-        let combatAdv = 'neither'
-        const playerAdv = () => {
+        let combatAdv = 'neither' 
+        const playerAdv = () => {//Strengthens or weakens attack on a rock paper scissors type system: Stength > Dexterity > Intelligence > Strength
             playerDmg = Math.floor(playerDmg * 1.3)
             enemyDmg = Math.floor(enemyDmg * 0.85)
             combatAdv = 'player'
@@ -32,8 +30,7 @@ const FightControls = ({dispatch, enemy, player}) => {
             enemyDmg = Math.floor(enemyDmg * 1.3)
             combatAdv = 'enemy'
         }
-        console.log(e.target.getAttribute('data'))
-        const advFunc = () => {
+        const advFunc = () => { // Compares chosen atk with enemt atk 
             switch(playerAtkType){
                 case 'strength' : 
                     switch (enemyAtkType) {
@@ -72,7 +69,6 @@ const FightControls = ({dispatch, enemy, player}) => {
             }
         }  
         advFunc()
-        console.log(playerDmg)
         const combatText = () => {
             switch (combatAdv) {
                 case 'player' : {
@@ -89,9 +85,9 @@ const FightControls = ({dispatch, enemy, player}) => {
         }
         
         
-        combatEnemy.hpCurrent = combatEnemy.hpCurrent - playerDmg
+        combatEnemy.hpCurrent = combatEnemy.hpCurrent - playerDmg //Now that all dmg factors have been run, update hp totals
         combatPlayer.hpCurrent = combatPlayer.hpCurrent - enemyDmg
-        if(combatEnemy.hpCurrent <= 0){
+        if(combatEnemy.hpCurrent <= 0){ //Prevents negative health
             combatEnemy.hpCurrent = 0
         }
         dispatch(combatAction(combatEnemy, combatPlayer, combatText()))
@@ -110,7 +106,7 @@ const FightControls = ({dispatch, enemy, player}) => {
         </>
     )} else {
         return (
-            <button className={'combatButton'}onClick={endCombatFunc}>You've won the battle!</button>
+            <button className={'combatButton'}onClick={() => dispatch(endCombat)}>You've won the battle!</button>
         )
     }
 }
